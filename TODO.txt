@@ -1,0 +1,26 @@
+Dev Bod
+    Brain Fog
+        Leg exercises
+        Diet
+    Hand Care
+        Stretches
+        Warning signs
+        Ergonomics
+    Posture
+        Standing desk
+        Warrior pose
+
+A dev's job is to break unit tests
+    New features: TDD
+    Bugfixes: should break existing tests
+    Negative tests
+
+Growth mindset
+    interacting with others
+    identifying other mindset types
+
+Hand and Brain Pair Programming
+
+The Art of the Nerd Snipe: How to ask questions that people want to answer
+
+Upgrading from old versions of node: Trials and tribulations
