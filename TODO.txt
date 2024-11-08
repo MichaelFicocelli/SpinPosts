@@ -1,9 +1,10 @@
 What it is like when your company is acquired
     or, how to lose your culture in one easy step
 
-       We were the kind of place that software companies try to sound like on their websites.
+        We were the kind of place that software companies try to sound like on their websites.
 
-        Disconnection
+        competition instead of community: perceived limited survivors.
+        Overnight loss of connectivity and rapport
         uncertainty
         turnover, layoffs
         Loss of tribal knowledge
@@ -21,21 +22,61 @@ Dev Bod
         Stretches
         Warning signs
         Ergonomics
+
     Posture
         Standing desk
         Warrior pose
+
 
 A dev's job is to break unit tests
     New features: TDD
     Bugfixes: should break existing tests
     Negative tests
 
+
 Growth mindset
     interacting with others
     identifying other mindset types
 
+
 Hand and Brain Pair Programming
+    how to get everyone involved
+
 
 The Art of the Nerd Snipe: How to ask questions that people want to answer
+    DO NOT JUST SAY "HELLO". I can't triage a hello. https://nohello.net/en/
+    Do not ask if you can ask https://dontasktoask.com/
+    Include them in the goal
+
+    Don't just ask for help with the tiny step you are on, include context https://xyproblem.info/
+    Be clear you are planning to be part of the investigation, a partner, not a demandee
+
+    try things first
+        RTFM
+        Google your problem
+        don't just be instantly helpless
+
+    Mention what you have already tried in your question
+        This brings helpers along for the ride
+        Avoids duplicating effort: be respectful of volunteer's time
+
+    Describe what you observe, not your guess as to what is going wrong
+
+    You will get answers that reflect your question's quality.
+        Hasty questions that are not thought-out will often get hasty answers
+        Pointing blame will immediately turn of readers
+
+    thoughts
+        http://catb.org/~esr/faqs/smart-questions.html
+        https://xkcd.com/356/
+
 
 Upgrading from old versions of node: Trials and tribulations
+
+
+Cultural lessons visiting Japan: challenging assumptions about workplace culture
+        People can rise to expectations, good or bad
+    no trash, no trash cans
+    no tipping, still good service
+    Leaving space on escalators
+    No noise on trains
