@@ -10,6 +10,7 @@ What it is like when your company is acquired
         Loss of tribal knowledge
 
 
+
 Dev Bod
     Brain Fog
         Sleep
@@ -28,10 +29,12 @@ Dev Bod
         Warrior pose
 
 
+
 A dev's job is to break unit tests
     New features: TDD
     Bugfixes: should break existing tests
     Negative tests
+
 
 
 Growth mindset
@@ -39,8 +42,10 @@ Growth mindset
     identifying other mindset types
 
 
+
 Hand and Brain Pair Programming
     how to get everyone involved
+
 
 
 The Art of the Nerd Snipe: How to ask questions that people want to answer
@@ -71,7 +76,13 @@ The Art of the Nerd Snipe: How to ask questions that people want to answer
         https://xkcd.com/356/
 
 
+
 Upgrading from old versions of node: Trials and tribulations
+    https://www.npmjs.com/package/npm-check-updates ( ncu doctor )
+    cache clean force
+    lock only
+    no scripts
+
 
 
 Cultural lessons visiting Japan: challenging assumptions about workplace culture
@@ -80,3 +91,27 @@ Cultural lessons visiting Japan: challenging assumptions about workplace culture
     no tipping, still good service
     Leaving space on escalators
     No noise on trains
+
+
+
+Gdscript / godot
+
+
+
+Double cruxing: optimal ways to resolve conflicting expectations
+    https://www.rationality.org/resources/updates/2016/double-crux
+
+
+
+
+Prompts:
+What am I encountering in my project?
+What answers can't I find online?
+What am I experimenting with?
+What can't I stop thinking about?
+What works well at work? what doesn't work well?
+
+Hot take: call out products or practices
+Best practices
+Describe an approach or technique you learned
+Look at exiting spin posts for ideas, or those that need updating

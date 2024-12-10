@@ -1,0 +1,10 @@
+
+Some two decades ago I began my development journey when I first stumbled upon the drag-and-drop BASIC flavor on the TI-83 graphing calculator we had in school. From learning to make my own random number generators from scratch (really just a modulo timer measuring user input delay) to discovering the hard way why you should not use GOTO's, my first taste had me hooked.  The simple RPG and other games I wrote then are still being passed around my high school, calculator-to-calculator, with the source code open to teach the next generation the same way I got started. Ever since then, I have been pursuing this unique and expressive medium of creation.
+
+That journey has taken me to many places since then at several software companies during my consulting career. I have spearheaded the greenfield re-write of a Fortune 500 ancient legacy ecommerce front-end stack; pulled a multi-billion dollar utility company out of a deadlocked process from hard-copy-only recordkeeping; and even led a product demo of an automated forklift navigation system to a client partner that was actively sitting in that forklift, streaming the meeting, as it drove around.
+
+Development has taught me that there is always more to learn. I have discovered that sharing that knowledge is the key difference between fantastically successful projects and never getting off the ground. I'm always looking for a new challenge or a new project to craft, both in my free time and at work. Atomic Object has uniquely provided the support and community that I need to excel.
+
+
+
+Software Consultant and Developer. Passionate about engaging challenges, creative solutions, and learning new things every day.
