@@ -1,29 +1,3 @@
-Test your software, or your users will
-    If it's worth doing, it's worth making sure it is done right
-
-    The power of quality assured code
-
-    RAPID FEEDBACK
-
-    Test relentlessly. Ask the hard questions.
-
-    We've all been in demos where the team is going through a unified flow for the first time on camera (or when the product owner or other user asks them to click on something unexpected.) Discovering bugs in a demo is embarrassing.
-
-    F*ck it, we're doing it live
-        The value we deliver to users is hard-capped by the unexpected or annoying aspects of the software; the tiny friction points they meet
-        The relationship with a client is driven by the perceived quality of the code delivered to them, and little bugs making it through the cracks that appear when use the software wrecks that impression.
-
-        PRODUCTION IS NOT THE TEST ENVIRONMENT
-
-    Testing is the first user of your code
-
-    Ensure that stories' requirements are pinned down to something clear and tangible
-
-    Validation not just that the AC is completed, but that the implied connections to other features and UI interaction is smooth
-
-    Automated regression tests for main user flows
-
-    Software testing day: https://xkcd.com/2928/
 
 
 

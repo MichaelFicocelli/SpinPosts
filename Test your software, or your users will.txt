@@ -1,0 +1,69 @@
+Test your software, or your users will
+    User experience IS the quality of the code
+
+
+
+
+"The product owner never mentioned this."
+"That wasn't in the ticket!"
+"it's not a bug, it's working as designed"
+
+These sweet nothings will probably not make your user feel better about the software they were handed. Your end users don't know or care about acceptance criteria! The only measure users have of the quality of the product they receive is the experience they have with it. Users have an amazing ability to find out immediately if your code is sufficiently tested or not.
+
+
+
+        Software testing day: https://xkcd.com/2928/
+
+
+Users can't see clean code
+
+The perceived value delivered to users is limited by the unexpected or annoying aspects of the software. Every friction point they run into decreases their confidence in how well-built the underlying system is. Every inconsistent interaction, or extra required click, colors their impression of the dev team. Why doesn't that form get focused when it is opened? Why can't you clear this search bar? Why is there no way to see that important detail on this other page?
+
+"If no one has ever tested this obvious user flow before, what else is wrong under the hood?"
+
+The relationship with a client is driven by the quality of the code delivered to them, and bugs making it through the cracks when they use the software wrecks that confidence. It doesn't matter to them if the code has great documentation and is pure functional and has a good personality. It doesn't matter if the API has great integration tests and Sonar Cube is happy. The only thing they can touch and see is the external UI. The trust that the development process (and business relationship) is built on quickly erodes when met with untested code.
+
+
+Demos are not a test environment
+
+We've all been in demos where the team is on camera going through a unified user flow for the first time. Or, the product owner asks them to do something unexpected that wasn't part of the demo plan. A dev who has become an expert in their story's little corner suddenly discovers it is connected in a complex way to many other parts of the software (which of course is never part of the acceptance criteria). Demos force the team to walk through the user flow with a much more holistic approach than their unit tests or user stories do. It becomes very apparent if no-one has thoroughly gone through it, end-to-end, looking for problems. Discovering new bugs in a client demo is not a good look.
+
+
+
+"F*ck it, we're doing it live" is not a testing strategy
+
+Developers are not very good actors [citation needed]. It's very obvious when the team is not confident that the code is well-tested and resilient, especially when a prod release is looming.
+
+
+The value we deliver to the users can be cut down to a fraction of its potential by tiny misses. The amount of time and money involved in development necessitates prioritizing dedicated, thorough testing, from the very start of a project. It takes twice as long to do it quick and test in prod than to do it right.
+
+Test relentlessly. Ask the hard questions. Deliver quality, with confidence.
+
+
+Tune in soon for part 2: "Developers are bad at QA testing"
+
+
+
+
+
+    The power of quality assured code
+
+    RAPID FEEDBACK
+
+
+
+    Testing is the first user of your code
+
+    Devs are, frankly, bad at QA
+
+    Ensure that stories' requirements are pinned down to something clear and tangible
+
+    Validation not just that the AC is completed, but that the implied connections to other features and UI interaction is smooth
+
+    Automated regression tests for main user flows
+
+
+
+    https://bestarion.com/the-importance-of-software-quality-assurance/#:~:text=Ensuring%20High%2DQuality%20Product%3A%20QA,user%20expectations%20and%20industry%20standards.
+
+    https://bootcamp.umass.edu/blog/quality-management/what-is-a-quality-engineer#:~:text=The%20role%20of%20a%20quality,a%20company's%20success%20and%20reputation.
