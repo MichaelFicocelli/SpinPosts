@@ -106,6 +106,15 @@ Double cruxing: optimal ways to resolve conflicting expectations
     https://www.rationality.org/resources/updates/2016/double-crux
 
 
+Case-insensitive filename tab-completion in zsh
+    Breakdown:
+    https://stackoverflow.com/questions/7906078/how-does-the-matcher-list-arguments-work-in-zsh-zstyle-completion
+
+    ## case insensitive path-completion
+    autoload -Uz +X compinit && compinit
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|=*' 'm:{a-zA-Z}={A-Za-z}  l:|=* r:|=*' 'm:{a-zA-Z}={A-Za-z}'
+    zstyle ':completion:*' menu select
+
 
 
 Prompts:
