@@ -101,6 +101,9 @@ Cultural lessons visiting Japan: challenging assumptions about workplace culture
 Gdscript / godot
 
 
+Requirements gathering is hard. Do they even know what they want?
+
+
 
 Double cruxing: optimal ways to resolve conflicting expectations
     https://www.rationality.org/resources/updates/2016/double-crux

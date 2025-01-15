@@ -1,5 +1,5 @@
 Test your software, or your users will
-    User experience IS the quality of the code
+    User experience, not code quality, is how software is measured
 
 
 
@@ -8,7 +8,7 @@ Test your software, or your users will
 "It's not a bug, it's working as designed."
 "You want to do WHAT with it?!?"
 
-These "sweet nothings" will probably not make your users feel better about the software they were handed. Your end users don't know or care about acceptance criteria! The only measure users have of the quality of the product they receive is their experience with it. Users always have the amazing ability to find out immediately if your code is well-tested or not.
+These "sweet nothings" will probably not make your product owner's boss feel better about the software they were handed. Your end users don't know or care about acceptance criteria! The only measure users have of the quality of the product they receive is their experience with it. Users always have the amazing ability to find out immediately if your code is well-tested or not. Your expensive and time-consuming software, delivered with insufficient end-to-end testing and the resulting very visible problems, will make your clients rapidly lose confidence.
 
 
 
@@ -17,32 +17,32 @@ These "sweet nothings" will probably not make your users feel better about the s
 
 Users can't see clean code
 
-The perceived value delivered to users is limited by the unexpected or annoying aspects of the software. Every friction point they run into decreases their confidence in how well-built the underlying system is. Every inconsistent interaction, or extra required click, colors their impression of the dev team. Why doesn't that form get focused when it is opened? Why can't you clear this search bar? Why is there no way to see that important detail on this other page?
+The perceived value delivered to users is limited by the unexpected or annoying aspects of the software. Every friction point they run into decreases their confidence in how well-built the underlying system is. Every inconsistent interaction, or extra required click, affects their impression of the dev team. Why doesn't that form get focused when it is opened? Why can't you clear this search bar? Why is there no way to see that important detail on this other page?
 
 "If no one has ever tested this 'obvious' user flow before, what else is wrong under the hood?"
 
-The relationship with a client is driven by the quality of the code delivered to them, and bugs making it through absolutely wrecks that confidence. It doesn't matter to them if the code has great documentation and is pure functional and has a good personality. It doesn't matter if the API has great integration tests and Sonar Cube is happy. The only thing they can judge how well you made what they paid for is what they can see. The trust that the development process (and business relationship) is built on quickly erodes when met with under-tested code.
+The relationship with a client is driven by the quality of the software delivered to them, and bugs making it through absolutely wrecks that confidence. It doesn't matter to them if the code has great documentation and is pure-functional and has a good personality. It doesn't matter if the API has great integration tests and Sonar Cube is happy. Every change  affects other parts of the software and user flows, and that broad context needs to be tested. The only way the users can judge how well-made the software they paid for, is based on what they can see. The trust that the development process (and business relationship) is built on quickly erodes when met with under-tested code.
 
 
 Demos are not test environments
 
-We've all been in demos where the team is on camera going through a unified user flow for the first time. Or, the product owner asks them to do something unexpected that wasn't part of the demo plan. A dev who has become an expert in their story's little corner suddenly discovers it is connected in a complex way to many other parts of the software (which of course is never part of the acceptance criteria). Demos force the team to walk through the user flow with a much more holistic approach than their unit tests or user stories do. It becomes very apparent if no-one has thoroughly gone through it, end-to-end, looking for problems. Discovering new bugs in a client demo is not a good look.
+We've all been in demos where the team is on camera going through a unified user flow for the first time. Or, the product owner's manager asks them to do something unexpected that wasn't part of the demo plan. A dev who has become an expert in their story's little corner suddenly discovers it is connected in a complex way to many other parts of the software (which of course is never part of the acceptance criteria). Demos force the team to walk through the user flow with a much more holistic approach than their unit tests or user stories do. It becomes very apparent if no-one has thoroughly gone through it, end-to-end, looking for problems. Discovering new bugs in a client demo is not a good look, and reflects poorly on not just the maker team but also on the client partners who help build requirements.
 
 
 "F*ck it, we're doing it live" is not a testing strategy
 
-Developers are not very good actors [citation needed]. It's very obvious when the team is not confident that the code is well-tested and resilient, especially when a prod release is looming. Clients and business partners are able to tell when testing and quality has taken a backseat to other concerns, such as a deadline that was definitely not chosen by the tech team. This is especially common when quality is not a clear part of the expectation and time estimates at the start of the project. If quality does not have sufficient dedicated resources, your users and clients will be painfully aware that the first time most user flows and edge cases were tried was in prod.
+Developers are not very good actors [citation needed]. It's very obvious when the team is not confident that the code is well-tested and resilient, especially when a prod release is looming. Clients and business partners are able to tell when testing and quality has taken a backseat to other concerns, such as a deadline that was definitely not chosen by the tech team. This is especially common when quality is not a clear part of the expectation and time estimates at the start of the project. If end-to-end & regression testing does not have sufficient dedicated resources, your users will be painfully aware that the first time user-flows were tried was in prod.
 
 
-The value we deliver to the users can be cut down to a fraction of its potential by tiny misses. The amount of time and money involved in development necessitates prioritizing dedicated, thorough testing, from the very start of a project. It takes twice as long to do it quick and test in prod than it does to do it right.
+The value we deliver to the client can be cut down to a fraction of its potential by tiny misses. The amount of time and money involved in development necessitates prioritizing dedicated, thorough testing, from the very start of a project. It takes twice as long to do it quick, and test in prod, than it does to do it right.
 
-Test relentlessly. Ask the hard questions. Deliver quality, with confidence.
+Test relentlessly. Ask the hard questions. Deliver quality software, with confidence.
 
 
 Tune in soon for part 2: "Developers are bad at QA testing"
 
 
-
+With thanks to "The Pragmatic Programmer" ( https://pragprog.com/ ) by David Thomas and Andrew Hunt, for inspiration on a number of the points above, and coining the phrase used as the title of this post.
 
 ---------------
 
