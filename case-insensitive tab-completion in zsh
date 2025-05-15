@@ -1,0 +1,65 @@
+Case-Insensitive mid-word tab completion in ZSH
+
+I’ve recently been working on a project where the client naming convention consists of approximately ten billion duplicate characters at the beginning of directories, with duplicate-named folders nested inside each other. Needless to say, navigating this environment in a terminal can be a headache.
+
+
+
+With the zsh setup I had, I was unable to tab-complete directory or file names starting from the middle of the name. Instead, I had to slowly type/tab my way from the far left side of each of these, with multiple potential options at each delimiter. So, I set about finding a way to improve this.
+
+The core of this configuration is driven by zsh completion rules. These are a set of static hints, filters, and dynamically generated suggestions that power tab-completion everywhere in the terminal. Configuring those rules looks like this:
+
+```
+zstyle ':completion:*'
+```
+
+However, in my case, the config I had from an old Oh My Zsh setup wasn’t yet using the completion tool that this config relies on. So, I had to first make sure it was autoloaded. (Autoload lazy-evaluates the function specified once it is needed, later on in the terminal startup)
+
+```
+autoload -Uz +X compinit && compinit
+```
+
+And with that I was able to add new completion rules to my .zshrc file. This notation indicates that the search results from tab-completion can be on either side of the input. Or, in other words, mid-word matching on directories! It works!
+
+```
+zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
+```
+
+Except, well, it didn’t. In all of these changes, I had lost another important feature I relied on: case-insensitive matches for tab-completion. I often don’t remember if it is api or Api or API in this location, and guessing wrong just gives the lovely Mac boop noise instead of the name of the directory that I know exists and looks like my input.
+
+So, I added this completion rule to support case insensitivity. And then I was able to match without mashing the shift key all over!
+
+```
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}
+```
+
+Except, now that insensitivity rule was overriding the prior completion configuration from above, and I was back to where I started.
+
+After a lot of fiddling, and combining a number of different combinations of the rules above, eventually I put together this.
+
+```
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|=*' 'm:{a-zA-Z}={A-Za-z}  l:|=* r:|=*' 'm:{a-zA-Z}={A-Za-z}'
+```
+
+This essentially adds a copy of the a-zA-Z=A-Za-z rule (to match case-insensitive) to each of the other rules (match to the left, match to the right+left, or the implicit match from the start of the token).
+
+Finally, this final completion line makes it so that I actually enter the directory that matches upon hitting tab, instead of having to hit tab yet again:
+
+```
+zstyle ':completion:*' menu select
+```
+
+And finally, after far too long, I have the intuitive tab-completion I was looking for. To bring all of this solution together, here is what my .zshrc contains:
+
+```
+## case insensitive path-completion
+autoload -Uz +X compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|=*' 'm:{a-zA-Z}={A-Za-z}  l:|=* r:|=*' 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
+```
+
+
+
+Helpflul links:
+    https://stackoverflow.com/questions/7906078/how-does-the-matcher-list-arguments-work-in-zsh-zstyle-completion
+
+       https://thevaluable.dev/zsh-completion-guide-examples/

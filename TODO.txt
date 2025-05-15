@@ -1,5 +1,5 @@
 
-
+Secrets of the chromium dev tools
 
 
 What it is like when your company is acquired
@@ -38,6 +38,7 @@ A dev's job is to break unit tests
     New features: TDD
     Bugfixes: should break existing tests
     Negative tests
+    [1,2,3] test
 
 
 
@@ -107,16 +108,6 @@ Requirements gathering is hard. Do they even know what they want?
 
 Double cruxing: optimal ways to resolve conflicting expectations
     https://www.rationality.org/resources/updates/2016/double-crux
-
-
-Case-insensitive filename tab-completion in zsh
-    Breakdown:
-    https://stackoverflow.com/questions/7906078/how-does-the-matcher-list-arguments-work-in-zsh-zstyle-completion
-
-    ## case insensitive path-completion
-    autoload -Uz +X compinit && compinit
-    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|=*' 'm:{a-zA-Z}={A-Za-z}  l:|=* r:|=*' 'm:{a-zA-Z}={A-Za-z}'
-    zstyle ':completion:*' menu select
 
 
 
