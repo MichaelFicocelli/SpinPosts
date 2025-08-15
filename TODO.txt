@@ -1,6 +1,27 @@
+Communicating confidence: planning projects with percents
+
+    Planning fallacy: Why is everyone always wrong when predicting timelines?
+
+    What is likelihood?
+        What does it mean to be 90% sure a project will complete by a certain time?
+
+    How to get a good estimate?
+        Outside view
+        (story points)
+
+    How to calibrate confidence?
+        Record your predictions
+
+    Social confidence vs formal evidence
+
+
 
 Secrets of the chromium dev tools
-
+    the debugger
+    searching in the network tab
+    initiator column in network tab
+    event handlers in elements tab
+    profiler
 
 What it is like when your company is acquired
     or, how to lose your culture in one easy step
