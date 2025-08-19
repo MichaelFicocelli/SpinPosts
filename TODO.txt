@@ -9,7 +9,7 @@ Communicating confidence: planning projects with percents
         Outside view
         (story points)
 
-    How to calibrate confidence?
+    How to calibrate confidence intervals?
         Record your predictions
 
     Social confidence vs formal evidence
@@ -72,34 +72,6 @@ Growth mindset
 Hand and Brain Pair Programming
     how to get everyone involved
 
-
-
-The Art of the Nerd Snipe: How to ask questions that people want to answer
-    DO NOT JUST SAY "HELLO". I can't triage a hello. https://nohello.net/en/
-    Do not ask if you can ask https://dontasktoask.com/
-    Include them in the goal
-
-    Don't just ask for help with the tiny step you are on, include context https://xyproblem.info/
-    Be clear you are planning to be part of the investigation, a partner, not a demandee
-
-    try things first
-        RTFM
-        Google your problem
-        don't just be instantly helpless
-
-    Mention what you have already tried in your question
-        This brings helpers along for the ride
-        Avoids duplicating effort: be respectful of volunteer's time
-
-    Describe what you observe, not your guess as to what is going wrong
-
-    You will get answers that reflect your question's quality.
-        Hasty questions that are not thought-out will often get hasty answers
-        Pointing blame will immediately turn of readers
-
-    thoughts
-        http://catb.org/~esr/faqs/smart-questions.html
-        https://xkcd.com/356/
 
 
 
