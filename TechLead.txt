@@ -1,0 +1,47 @@
+
+What risks does the team/project/client face?
+
+
+
+
+What does the team need to succeed?
+- clarity, communication, requirements
+- knowing when to bail - break apart stories, fight scope creep
+- need people who can answer questions - identify knowledge gaps
+    - clearer requirements?
+    - implementation / architecture questions?
+
+
+
+How do the devs feel? Burnout watch
+- overwork, stress, patterns of negativity, lateness, low spoons, slower work or too many hours
+- can't find the energy to get started
+- dreading work
+- 1:1 s to catch it early
+
+
+
+direct, clear, communication
+saying no / pushing back
+- give them options
+- explain what happens if nothing is done
+- explain the point of friction (client devs? release? requirements gathering?)
+
+
+Suppose you just found ot that the project was FUBARed.
+ - If you had to guess, what went wrong?
+ - What can you do to handle the disaster now that it has happened?
+ - What can you do now to prevent that from ever being real?
+
+
+
+What risks does the team/project/client face?
+What does the team need to succeed?
+What is the most important things to make sure are done first/ done right?
+How can we make the client happy?
+What is slowing the devs down? What can we do?
+
+Identify and mitigate knowledge silos
+Sell the team on improvements and workflow
+Be proactive in sharing information
+Monitor system health

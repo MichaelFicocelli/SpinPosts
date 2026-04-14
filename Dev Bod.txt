@@ -1,12 +1,35 @@
+The care and feeding of your dev bod, part 1: Be Human Shaped
+
+Wrist pain, eyestrain, and sore backs are familiar companions in office jobs - but they don't have to be.  We all want to be a machine that turns coffee into business value, but your environment quite literally will make or break you. Preventative measures can not only keep you from breaking down over time, but actually increase your productivity.
+
+The quickest way to lose the ability to work comfortably is to spend a lot of time hunched over. Leaning forwards or looking down while working on a laptop or phone causes "tech neck" - muscle and back injury that can be permanent. Peering down at your screen moves your weight forward, off of your core, and suspends your head and shoulders out in front of you. This strains and pulls at your neck and back and spine over time. [1] Because of this, it is very important to use a monitor that is set high enough to be comfortable. Ideally the top edge of the monitor is at or just above eye level. [2]
+
+The other pretzel we commonly bend ourselves into is poor wrist position. Repetitive strain injuries are extremely common with extended computer use, and poor hand positioning greatly increases it. [3]  It is convenient to put the laptop wherever there is a flat surface in a meeting room and just do the wrist-icuffs needed to still type, but unfortunately it isn't sustainable for the duration of a career. You should use a keyboard that is at elbow level, and your wrists should be straight and relaxed, not angled. [4] Note that wrist rests in some cases can actually do more harm than good, due to the point pressure on joints they may cause. Ideally your wrists float over the keyboard, and your mouse hand only has a small pad on the thumb side to avoid the ulnar nerve and carpal tunnel tendons. [5]
+
+Together, this points to a key risk to the longevity of your dev bod: naked laptops are not a good idea to use long-term. Their keyboard is positioned too far away and not angled well, and the screen is far too low and small to use for extended periods of time. In many cases it will be impossible to completely avoid, but any reduction you can find will help, even if you just make the time to stand and uncurl a bit each hour.
+
+The common tiredness and strain that often comes with office work doesn't have to take away your productivity and longevity. Being curled up is familiar, and your laptop is so conveniently mobile, but your chassis needs to be kept in a good shape for it to keep working long-term. It is worth finding ways to shape your tech to you, rather than curling yourself up to meet your screen.
+
+
+[1] Poor posture and looking down while working leads to pulled muscles and slipped disks
+https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/effect-of-technology-on-your-neck
+
+[2] Position your monitor such that the top is at eye level to reduce strain and injury.
+https://www.osha.gov/etools/computer-workstations/components/monitors
+
+[3] Poor wrist angles increase the pressure of fluids in the carpal tunnel
+https://pmc.ncbi.nlm.nih.gov/articles/PMC2649727/
+
+[4] Your keyboard should be close to your body and at elbow height
+https://www.vitruehealth.com/learn-more/things-that-you-do-not-know-about-a-keyboard#:~:text=Your%20keyboard%20should%20be%20at,down%2C%20or%20to%20the%20side.
+
+[5] Wrist rests can cause extra pressure in joints, causing more harm than good
+https://www.orthopedicsri.com/blog-items/the-hidden-dangers-of-wrist-rests-why-theyre-not-your-friend/
+
+
+
+
 Dev Bod
-
-part 1: surviving an office workstation
-
-Be human shaped
-- if you are bent or curved, your risk of injury is much higher
-- use a monitor at your eye level
-- use wrist rests to keep wrists from being bent
-- avoid naked laptop use!
 
 Sitting is about as bad for you as smoking
 - https://www.acpjournals.org/doi/abs/10.7326/M14-1651
