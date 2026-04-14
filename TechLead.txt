@@ -18,14 +18,17 @@ How do the devs feel? Burnout watch
 - can't find the energy to get started
 - dreading work
 - 1:1 s to catch it early
-
+- What does each dev need for their best work? where do they get stuck?
 
 
 direct, clear, communication
-saying no / pushing back
+- saying no / pushing back
 - give them options
 - explain what happens if nothing is done
 - explain the point of friction (client devs? release? requirements gathering?)
+
+Identify and mitigate knowledge silos
+- BE ALLERGIC TO THEM
 
 
 Suppose you just found ot that the project was FUBARed.
@@ -41,7 +44,21 @@ What is the most important things to make sure are done first/ done right?
 How can we make the client happy?
 What is slowing the devs down? What can we do?
 
-Identify and mitigate knowledge silos
+
 Sell the team on improvements and workflow
+ - how do you sell people on ideas?
+ - get buy in for new processes?
+
 Be proactive in sharing information
 Monitor system health
+
+
+
+
+Talk to Kealy
+Me
+Matt
+Jake
+
+
+DLs: what is it like to work with a great tech lead? what can you rely on them for?
