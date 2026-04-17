@@ -17,7 +17,8 @@ How do the devs feel? Burnout watch
 - overwork, stress, patterns of negativity, lateness, low spoons, slower work or too many hours
 - can't find the energy to get started
 - dreading work
-- 1:1 s to catch it early
+- 1:1 s to check in regularly
+   - ask for feedback on how you are doing
 - What does each dev need for their best work? where do they get stuck?
 
 
@@ -53,7 +54,7 @@ Be proactive in sharing information
 Monitor system health
 
 
-
+Onboarding / pairing / knowledge transfer / check-ins - the most commonly missed things
 
 Talk to Kealy
 Me
