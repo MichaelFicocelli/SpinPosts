@@ -43,3 +43,32 @@ Mitigation Ideas
 
 * Learning to use LLMs as teachers/explainers/thought partners
 * Senior devs holding junior devs accountable for really understanding what they're delivering
+
+
+
+--------
+
+Lunch and Learn / AMA
+
+How to be involved in key decisions:
+    Plan out in advance where you want it to ask you questions, or pick a tool that interviews you first
+    Bring in humans on spec before implementing
+    Dial in your scope to be smaller and more focused
+
+Claude / codex hooks:
+    deterministic places or gates where code can be run
+    e.g. run lint before commit
+    main .md instruction files are ignored - use these to enforce good practice
+
+Pairing practices:
+    dive into more detailed planning together
+    Record meetings, especially technical and alignment meetings
+
+
+Rob blog post on permissions / auto-mode
+https://spin.atomicobject.com/permission-fatigue-claude-code/
+
+Set up a sandbox!
+
+make it quiz you
+https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md

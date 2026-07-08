@@ -6,6 +6,8 @@ Why it is important:
 * Losing technical skill growth opportunity - no more senior devs
 * Losing the consulting part of our business - offshore is the same and cheaper
 
+* Learning opportunities are way easier to simply miss now
+* skill growth, code smell intuition, and technology familiarity depth used to come "for free"
 
 What to do:
 
