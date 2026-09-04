@@ -1,0 +1,55 @@
+{
+  "totalPremiumRequestCost": 6,
+  "totalUserRequests": 1,
+  "totalNanoAiu": 0,
+  "totalApiDurationMs": 2673,
+  "sessionStartTime": "2026-09-04T14:29:20.845Z",
+  "codeChanges": {
+    "linesAdded": 0,
+    "linesRemoved": 0,
+    "filesModifiedCount": 0,
+    "filesModified": []
+  },
+  "modelMetrics": {
+    "gpt-5.4": {
+      "requests": {
+        "count": 1,
+        "cost": 6
+      },
+      "usage": {
+        "inputTokens": 19889,
+        "outputTokens": 177,
+        "cacheReadTokens": 18944,
+        "cacheWriteTokens": 0,
+        "reasoningTokens": 93
+      },
+      "cacheExpiresAt": "2026-09-04T14:59:21.347Z",
+      "totalNanoAiu": 0
+    }
+  },
+  "agentMetrics": {
+    "main": {
+      "totalApiDurationMs": 2673,
+      "totalNanoAiu": 0,
+      "modelMetrics": {
+        "gpt-5.4": {
+          "requests": {
+            "count": 1,
+            "cost": 6
+          },
+          "usage": {
+            "inputTokens": 19889,
+            "outputTokens": 177,
+            "cacheReadTokens": 18944,
+            "cacheWriteTokens": 0,
+            "reasoningTokens": 93
+          },
+          "totalNanoAiu": 0
+        }
+      }
+    }
+  },
+  "currentModel": "gpt-5.4",
+  "lastCallInputTokens": 19889,
+  "lastCallOutputTokens": 177
+}

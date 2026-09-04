@@ -1,0 +1,57 @@
+{
+  "totalPremiumRequestCost": 6,
+  "totalUserRequests": 1,
+  "totalNanoAiu": 0,
+  "totalApiDurationMs": 29064,
+  "sessionStartTime": "2026-09-04T14:18:40.343Z",
+  "codeChanges": {
+    "linesAdded": 36,
+    "linesRemoved": 28,
+    "filesModifiedCount": 1,
+    "filesModified": [
+      "/private/tmp/claude-501/-Users-michaelficocelli-work-MiCourt-Finance-Api/861c0784-481a-4839-9b55-ab8b43d56e53/scratchpad/experiment/test_late_fee_calculator.py"
+    ]
+  },
+  "modelMetrics": {
+    "gpt-5.4": {
+      "requests": {
+        "count": 8,
+        "cost": 6
+      },
+      "usage": {
+        "inputTokens": 219874,
+        "outputTokens": 3179,
+        "cacheReadTokens": 203776,
+        "cacheWriteTokens": 0,
+        "reasoningTokens": 885
+      },
+      "cacheExpiresAt": "2026-09-04T14:49:35.756Z",
+      "totalNanoAiu": 0
+    }
+  },
+  "agentMetrics": {
+    "main": {
+      "totalApiDurationMs": 29064,
+      "totalNanoAiu": 0,
+      "modelMetrics": {
+        "gpt-5.4": {
+          "requests": {
+            "count": 8,
+            "cost": 6
+          },
+          "usage": {
+            "inputTokens": 219874,
+            "outputTokens": 3179,
+            "cacheReadTokens": 203776,
+            "cacheWriteTokens": 0,
+            "reasoningTokens": 885
+          },
+          "totalNanoAiu": 0
+        }
+      }
+    }
+  },
+  "currentModel": "gpt-5.4",
+  "lastCallInputTokens": 30963,
+  "lastCallOutputTokens": 107
+}

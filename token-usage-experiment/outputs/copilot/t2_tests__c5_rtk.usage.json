@@ -1,0 +1,58 @@
+{
+  "totalPremiumRequestCost": 6,
+  "totalUserRequests": 1,
+  "totalNanoAiu": 0,
+  "totalApiDurationMs": 59629,
+  "sessionStartTime": "2026-09-04T14:20:49.106Z",
+  "codeChanges": {
+    "linesAdded": 119,
+    "linesRemoved": 53,
+    "filesModifiedCount": 2,
+    "filesModified": [
+      "/var/folders/0y/qd1_rlpd69g7m3mst016ywlc0000gn/T/target.py",
+      "/private/tmp/claude-501/-Users-michaelficocelli-work-MiCourt-Finance-Api/861c0784-481a-4839-9b55-ab8b43d56e53/scratchpad/experiment/test_target.py"
+    ]
+  },
+  "modelMetrics": {
+    "gpt-5.4": {
+      "requests": {
+        "count": 12,
+        "cost": 6
+      },
+      "usage": {
+        "inputTokens": 312164,
+        "outputTokens": 7282,
+        "cacheReadTokens": 293888,
+        "cacheWriteTokens": 0,
+        "reasoningTokens": 2918
+      },
+      "cacheExpiresAt": "2026-09-04T14:52:55.543Z",
+      "totalNanoAiu": 0
+    }
+  },
+  "agentMetrics": {
+    "main": {
+      "totalApiDurationMs": 59629,
+      "totalNanoAiu": 0,
+      "modelMetrics": {
+        "gpt-5.4": {
+          "requests": {
+            "count": 12,
+            "cost": 6
+          },
+          "usage": {
+            "inputTokens": 312164,
+            "outputTokens": 7282,
+            "cacheReadTokens": 293888,
+            "cacheWriteTokens": 0,
+            "reasoningTokens": 2918
+          },
+          "totalNanoAiu": 0
+        }
+      }
+    }
+  },
+  "currentModel": "gpt-5.4",
+  "lastCallInputTokens": 30542,
+  "lastCallOutputTokens": 203
+}
