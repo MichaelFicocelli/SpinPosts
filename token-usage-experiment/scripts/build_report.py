@@ -44,6 +44,16 @@ COND_LABELS = {
     "c7_spr": "SPR-compressed input",
     "c8_combo": "Combo (caveman + hardcap + SPR)",
 }
+COND_TOOLTIPS = {
+    "c1_baseline": "Send the task's base instruction verbatim. No shaping, no hints.",
+    "c2_detailed": "Swap the short base instruction for a prescriptive paragraph that enumerates every rule the model should follow (quote exact lines, list every documented rule, prefix final answers, etc.).",
+    "c3_caveman": "Prepend a directive telling the model to talk AND think in caveman-speak: drop 'the', 'a', 'is', 'of', 'to'; short words; save tokens; still solve the task.",
+    "c4_html": "Append a request for a complete standalone HTML document (<!doctype html>, <head>, <style>, <body>) presenting the task and answer.",
+    "c5_rtk": "Only applies to tasks 1 and 2. Tell the model to route CLI reads through the rtk proxy (rtk read, rtk grep, rtk err) so command output is filtered before it hits the model context.",
+    "c6_hardcap": "Prepend a strict-brevity directive: no preamble, no disclaimers, no restating the task, no closing remarks, 150-token output cap.",
+    "c7_spr": "Preprocess the prompt itself: strip stopwords ('the', 'a', 'of', 'in', 'to', ...), collapse whitespace, then tell the model the input is SPR-compressed and should be read charitably.",
+    "c8_combo": "Stack c3 + c6 + c7 in one prompt: caveman-speak preface, 150-token output cap, and SPR-compressed input.",
+}
 MODEL_LABELS = {
     "opus": "Opus 4.7",
     "sonnet": "Sonnet 4.5",
@@ -192,7 +202,8 @@ def render_task_table(task_id):
         row = rows_by_cond.get(cond_id, {})
         if not row:
             continue
-        parts.append(f'<tr><th>{esc(COND_LABELS[cond_id])}</th>')
+        tt = esc(COND_TOOLTIPS.get(cond_id, ""))
+        parts.append(f'<tr><th class="cond-cell" title="{tt}">{esc(COND_LABELS[cond_id])}</th>')
         for i, m in enumerate(MODELS_ORDER):
             sep = ' model-sep' if i > 0 else ''
             cell = row.get(m)
@@ -294,7 +305,8 @@ def render_condition_summary():
     parts.append('</tr></thead><tbody>')
 
     for cond_id in CONDITIONS_ORDER:
-        parts.append(f'<tr><th>{esc(COND_LABELS[cond_id])}</th>')
+        tt = esc(COND_TOOLTIPS.get(cond_id, ""))
+        parts.append(f'<tr><th class="cond-cell" title="{tt}">{esc(COND_LABELS[cond_id])}</th>')
         for i, m in enumerate(MODELS_ORDER):
             sep = ' model-sep' if i > 0 else ''
             rows = [r for r in RESULTS if r["condition_id"] == cond_id and r["model"] == m]
@@ -567,6 +579,7 @@ def render_page():
     table.matrix { border-collapse: collapse; width: 100%; margin: 8px 0 16px; font-size: 13px; }
     table.matrix th, table.matrix td { padding: 8px 10px; border: 1px solid #1f2937; text-align: left; }
     table.matrix th.model-sep, table.matrix td.model-sep { border-left: 3px solid #64748b; }
+    table.matrix th.cond-cell { cursor: help; text-decoration: underline dotted #64748b; text-underline-offset: 3px; }
     table.matrix th { background: #0f172a; color: #cbd5e1; font-weight: 500; }
     table.matrix td.cell { text-align: center; vertical-align: middle; }
     table.matrix td.na { color: #4b5563; text-align: center; font-style: italic; }
@@ -604,6 +617,11 @@ def render_page():
     .all-runs summary { padding: 8px 4px; cursor: pointer; color: #94a3b8; font-size: 12px; }
     section.method p, section.method li { color: #cbd5e1; }
     section.method ul { padding-left: 20px; }
+    section.abstract, section.results-summary { background: #0d1220; border: 1px solid #1f2937; border-radius: 8px; padding: 12px 20px 16px; margin: 16px 0; }
+    section.abstract h2, section.results-summary h2 { margin: 4px 0 10px; padding-top: 0; border-top: none; }
+    section.abstract p, section.results-summary li { color: #cbd5e1; }
+    section.results-summary ul { padding-left: 20px; margin: 0; }
+    section.results-summary li { margin: 6px 0; }
     section.repro p, section.repro li { color: #cbd5e1; }
     .repro-item { margin: 4px 0; background: #0f172a; border: 1px solid #1e293b; border-radius: 4px; padding: 4px 10px; }
     .repro-item summary { cursor: pointer; padding: 6px 4px; font-size: 13px; color: #e5e7eb; }
@@ -659,6 +677,23 @@ def render_page():
     <main>
         <h1>Token-usage vs task-success experiment</h1>
         <p class="subtitle">Comparing 5 Claude models + Copilot × up to 8 prompt conditions × 6 tasks ({total_runs} runs; {good_runs} usable).</p>
+
+        <section class="abstract">
+            <h2>Abstract</h2>
+            <p>Can changing how you write a prompt lower your token bill without hurting the answer? We tried a handful of prompt tweaks across everyday tasks on several Claude models and one GPT model, graded every answer against a fixed checklist, and compared the token cost with and without each tweak.</p>
+        </section>
+
+        <section class="results-summary">
+            <h2>Results: how to spend fewer tokens</h2>
+            <ul>
+                <li><strong>Cap the output.</strong> Add "no preamble, no closing, 150-token max" to the prompt. Total tokens drop about 45%. Older Opus sometimes loses accuracy on harder tasks; the newer Claude 5 models don't.</li>
+                <li><strong>Drop filler in the prompt.</strong> Tell the model to write in caveman-speak (no "the", "of", "is"). Response tokens drop ~50% and accuracy stays put.</li>
+                <li><strong>Compress the input.</strong> Strip stopwords before sending long prompts. Small savings, no accuracy hit.</li>
+                <li><strong>Don't ask for HTML.</strong> It's the one tweak that raises cost. Response tokens rise 2-3x for the same answer.</li>
+                <li><strong>Stack everything only if you can afford some accuracy loss.</strong> Cap + caveman-speak + stripped input cuts total cost 44%, but the score drops ~18 points. Worth it for short-answer tasks (math, JSON extraction, meeting bullets); not worth it when the answer has to hit every item on a long checklist (legal summaries).</li>
+                <li><strong>Upgrade the model.</strong> Sonnet 5 answers the same tasks as 4.5 for ~30% fewer output tokens and slightly higher accuracy.</li>
+            </ul>
+        </section>
 
         <div class="stats">
             <div class="stat"><div class="stat-label">Total runs</div><div class="stat-value">{total_runs}</div></div>
