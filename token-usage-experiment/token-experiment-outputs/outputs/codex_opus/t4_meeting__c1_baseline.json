@@ -1,0 +1,12 @@
+{
+  "response": "# Q3 Planning Sync \u2014 2026-08-27\n\n## Key decisions\n- **Reconciliation revamp is the Q3 anchor.** Build, not buy. Current engine fails on multi-currency batches (3 incidents this quarter, reconciliation tickets +40% QoQ). Scope: ~6 engineer-weeks including FX rounding migration, plus 2 weeks of Karim (platform) for ledger integration.\n- **Vendors rejected.** Recur $180K/yr; LedgerFlow $140K/yr but misses jurisdiction-specific tax codes. Both still need ~3 engineer-weeks of integration.\n- **Mobile receipt-capture ships v1 without bulk-select.** User testing (6 users) surfaced two asks: bulk-select before upload, and a more prominent OCR confidence indicator. Bulk-select is ~1 sprint and goes on the roadmap as a fast-follow.\n- **Vendor payout SLA target is 48h p95 from invoice approval** (current p95: 71h). Path: cut ACH batching window 12h \u2192 4h (eng, ~half a sprint + SRE sign-off) and add a second west-coast-shift approver (ops). Not approved yet \u2014 contingent on SRE saying monitoring load is manageable; otherwise fall back to intermediate targets.\n- **Audit-log retention update pushed to Q4**, confirmed with Legal.\n- **Internal admin-tool refresh unchanged**, still owned by the intern crew.\n- **Scope locks Friday**, exec review Monday.\n\n## Action items\n| Owner | Item | Due |\n|---|---|---|\n| Marcus | Confirm Karim's availability with his manager | This week |\n| Marcus + Jenna | ACH batch-window trade-off analysis (incl. SRE sign-off on monitoring load) | Next week |\n| Marcus | Propose rotating on-call structure (HR flagged bug-bash burnout) | Aug 31 |\n| Dan | Update mobile receipt-capture specs (v1 without bulk-select) | Wednesday |\n| Priya | Circulate scope draft for review | Thursday AM |\n| All | Q3 scope lock | Friday |\n| Sara | Exec review | Monday |",
+  "tokens": {
+    "input": 17382,
+    "output": 759,
+    "reasoning": 0
+  },
+  "duration_ms": 8297,
+  "run_id": "t4_meeting__c1_baseline",
+  "model": "opus",
+  "prompt_chars": 3715
+}

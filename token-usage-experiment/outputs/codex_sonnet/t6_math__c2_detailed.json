@@ -1,0 +1,12 @@
+{
+  "response": "**1. Base fees**\n- Civil: 420 \u00d7 $85 = $35,700\n- Family law: 175 \u00d7 $120 = $21,000\n- Probate: 60 \u00d7 $210 = $12,600\n\n**2. Subtotal:** $35,700 + $21,000 + $12,600 = $69,300\n\n**3. Surcharge (6%):** $69,300 \u00d7 0.06 = $4,158, so the total with surcharge is $73,458.\n\n**4. Electronic-filing credits ($5 each)**\n- Civil: 70% \u00d7 420 = 294 filings, so $1,470\n- Family law: 40% \u00d7 175 = 70 filings, so $350\n- Probate: 25% \u00d7 60 = 15 filings, so $75\n- Total credit: $1,895\n\n**5. Net collected:** $73,458 \u2212 $1,895 = $71,563\n\n**6. Courthouse share (82%):** $71,563 \u00d7 0.82 = $58,681.66\n\nThe $9,400 in passport-services revenue is explicitly out of scope, so I excluded it.\n\nFINAL: $58,682",
+  "tokens": {
+    "input": 16512,
+    "output": 345,
+    "reasoning": 0
+  },
+  "duration_ms": 3808,
+  "run_id": "t6_math__c2_detailed",
+  "model": "sonnet",
+  "prompt_chars": 1357
+}

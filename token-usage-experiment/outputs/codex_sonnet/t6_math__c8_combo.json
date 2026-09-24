@@ -1,0 +1,40 @@
+{
+  "response": "- Civil: 420\u00d785=35700 \u00d71.06=37842; e-fee 294\u00d7$5=1470\n- Family: 175\u00d7120=21000\u00d71.06=22260; e-fee 70\u00d7$5=350\n- Probate: 60\u00d7210=12600\u00d71.06=13356; e-fee 15\u00d7$5=75\n- Total after surcharge: 73458\n- Total credits: 1895\n- Net collected: 71563\n- Retain 82%: 71563\u00d70.82=58681.66\n\n**Answer: $58,682** (passport $9,400 excluded)",
+  "model": "codex_sonnet",
+  "run_id": "t6_math__c8_combo",
+  "duration_ms": 3845,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 14884,
+    "output_tokens": 373,
+    "output_tokens_details": {
+      "thinking_tokens": 197
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 373,
+        "cache_read_input_tokens": 14884,
+        "cache_creation_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "is_error": false
+}

@@ -1,0 +1,40 @@
+CAVEMAN MODE + HARD CAP. Talk caveman: drop 'the', 'a', 'is', 'are', 'that', 'to', 'of' when meaning still clear. Short words. THINK caveman too. OUTPUT: minimum tokens, no preamble, no disclaimers, no restating task, no closing. Hard cap 150 output tokens. Terse bullets or JSON. Solve correctly.
+
+TASK (input SPR-compressed, interpret charitably):
+Extract information following resume JSON object fields: name( string), years_experience( integer), skills( array strings), most_recent_role( object title, company, dates). Respond only JSON object.
+
+Resume:
+
+# Alex Chen — Senior Software Engineer
+
+alex. chen@ example. com·( 415) 555- 0134· San Francisco, CA· github. com/ alexc
+
+Software engineer 9 years experience shipping backend services
+data pipelines fintech healthtech companies. Comfortable across
+stack; strongest distributed systems API design.
+
+## Experience
+
+**Staff Software Engineer**— Northwind Health, Remote— Mar 2023 present
+- Led migration billing service Ruby monolith Go microservices,
+cutting p99 latency 1. 8s 340ms.
+- Owner claims- ingestion pipeline( Kafka+ Flink), 2M events/ day.
+- Mentored 3 engineers, ran weekly design- review meeting.
+
+**Senior Software Engineer**— Cascade Payments, San Francisco— Aug 2019 Feb 2023
+- Built merchant- onboarding API Node. js/ TypeScript; grew 200
+40, 000 merchants three years.
+- Introduced feature- flag rollout process, adopted org- wide within 6 months.
+- - call rotation payments platform,~ 1 primary week per month.
+
+**Software Engineer**— Acme Corp, San Francisco— Jul 2017 Jul 2019
+- Wrote internal reporting service( Python/ Django, Postgres). Retired 2021.
+
+## Skills
+
+Go, Python, TypeScript, Node. js, Kafka, Flink, Postgres, Redis, Kubernetes,
+Terraform, AWS( EKS, RDS, Lambda), gRPC, REST, distributed tracing,- call.
+
+## Education
+
+B. S. Computer Science, UC Berkeley— 2017

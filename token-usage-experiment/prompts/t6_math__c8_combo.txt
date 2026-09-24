@@ -1,0 +1,27 @@
+CAVEMAN MODE + HARD CAP. Talk caveman: drop 'the', 'a', 'is', 'are', 'that', 'to', 'of' when meaning still clear. Short words. THINK caveman too. OUTPUT: minimum tokens, no preamble, no disclaimers, no restating task, no closing. Hard cap 150 output tokens. Terse bullets or JSON. Solve correctly.
+
+TASK (input SPR-compressed, interpret charitably):
+Solve following word problem. Show your work give final numeric answer.
+
+# Multi-step reasoning problem
+
+regional courthouse processes filing fees three case types. month
+March, courthouse processed:
+
+- 420 civil filings base fee$ 85.
+- 175 family- law filings base fee$ 120.
+- 60 probate filings base fee$ 210.
+
+Rules:
+- 6% state surcharge added every filing fee.
+- Filers submit electronically get$ 5 credit per filing( deducted
+what they owe). 70% civil filings, 40% family- law filings, 25%
+probate filings submitted electronically.
+- courthouse retains 82% collected total; remaining 18%
+remitted state.
+- Note: courthouse runs passport- services desk took$ 9, 400
+March, revenue handled separately part filing
+fee collections.
+
+Question: How much courthouse RETAIN filing fees collected
+March? Round nearest dollar.

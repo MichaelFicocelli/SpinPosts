@@ -1,0 +1,51 @@
+INPUT IS SPR-COMPRESSED (stopwords stripped, prose condensed). Interpret charitably.
+
+Write unit tests following Python class achieve> 90% branch coverage. Use pytest style. Code:
+
+from datetime import date, timedelta
+
+class LateFeeCalculator:
+    """Calculates late fees on invoices for a court finance system.
+
+    Rules:
+      - Grace period: 10 days after due_date, no fee.
+      - After grace period: 1.5% of outstanding balance per 30-day period,
+        prorated by day (i.e. per-day rate = 1.5% / 30).
+      - Minimum fee once past grace: $5.
+      - Maximum fee: 25% of the original balance (hard cap).
+      - Weekends do not count toward the days-late tally (Mon-Fri only).
+      - Fees are computed in whole cents (round half up).
+      - If balance <= 0, fee is 0 regardless of dates.
+    """
+
+    GRACE_DAYS = 10
+    MONTHLY_RATE = 0.015
+    MIN_FEE_CENTS = 500
+    MAX_FEE_FRACTION = 0.25
+
+    def __init__(self, today=None):
+        self._today = today or date.today()
+
+    def _weekday_days_between(self, start, end):
+        if end <= start:
+            return 0
+        days = 0
+        current = start
+        while current < end:
+            if current.weekday() < 5:
+                days += 1
+            current += timedelta(days=1)
+        return days
+
+    def compute_fee_cents(self, balance_cents, due_date):
+        if balance_cents <= 0:
+            return 0
+        days_past_due = self._weekday_days_between(due_date, self._today)
+        billable_days = days_past_due - self.GRACE_DAYS
+        if billable_days <= 0:
+            return 0
+        per_day_rate = self.MONTHLY_RATE / 30
+        raw_fee = balance_cents * per_day_rate * billable_days
+        rounded = int(raw_fee + 0.5)
+        capped = min(rounded, int(balance_cents * self.MAX_FEE_FRACTION))
+        return max(capped, self.MIN_FEE_CENTS)

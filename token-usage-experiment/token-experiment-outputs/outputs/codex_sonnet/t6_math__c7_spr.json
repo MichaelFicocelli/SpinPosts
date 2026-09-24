@@ -1,0 +1,12 @@
+{
+  "response": "Base fees with 6% surcharge:\n- Civil: 420 \u00d7 85 = 35,700\n- Family: 175 \u00d7 120 = 21,000\n- Probate: 60 \u00d7 210 = 12,600\n- Total base = 69,300\n- Surcharge 6% = 4,158\n- Gross owed = 73,458\n\nE-filing credits ($5 each):\n- Civil: 70% \u00d7 420 = 294\n- Family: 40% \u00d7 175 = 70\n- Probate: 25% \u00d7 60 = 15\n- Total = 379 filings \u00d7 $5 = 1,895\n\nCollected = 73,458 \u2212 1,895 = 71,563\n\nCourthouse retains 82%: 71,563 \u00d7 0.82 = 58,681.66 \u2248 **$58,682**\n\nThe $9,400 passport-services revenue is excluded, since it is handled separately from filing fee collections.\n\n**Answer: $58,682**",
+  "tokens": {
+    "input": 16366,
+    "output": 291,
+    "reasoning": 0
+  },
+  "duration_ms": 3745,
+  "run_id": "t6_math__c7_spr",
+  "model": "sonnet",
+  "prompt_chars": 908
+}

@@ -1,0 +1,40 @@
+{
+  "response": "**7.1 Mutual Indemnification** \u2014 Each side pay other's legal mess if mess your fault. Covers: broke promise in contract, big carelessness/bad intent, or your work steals someone IP. Not covered if they changed your work, mixed it with other stuff, or used it wrong way.\n\n**7.2 Procedure** \u2014 Tell other side fast, in writing. Let them run defense. They can't settle in way that blames you or makes you do things without your OK. You help; they pay your help cost.\n\n**7.3 Liability Cap** \u2014 No one pay for ripple damage (lost profit, lost data, reputation). Max payout = bigger of 12-month fees or $100k. Cap off for: indemnity, secrets leak, gross negligence, IP theft.\n\n**Terms**\n- Indemnify = pay your losses\n- Hold harmless = you not blamed\n- Gross negligence = way past sloppy\n- Consequential damages = knock-on losses\n- Willful misconduct = did bad on purpose",
+  "model": "codex_opus",
+  "run_id": "t3_legal__c8_combo",
+  "duration_ms": 5333,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 9174,
+    "cache_read_input_tokens": 6407,
+    "output_tokens": 328,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 9174,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 328,
+        "cache_read_input_tokens": 6407,
+        "cache_creation_input_tokens": 9174,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 9174
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "is_error": false
+}

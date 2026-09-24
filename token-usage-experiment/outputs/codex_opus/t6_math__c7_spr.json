@@ -1,0 +1,12 @@
+{
+  "response": "**$58,682**\n\nWork:\n1. Base fees: 420\u00d7$85 = $35,700 | 175\u00d7$120 = $21,000 | 60\u00d7$210 = $12,600 \u2192 **$69,300**\n2. +6% surcharge: $69,300 \u00d7 1.06 = **$73,458**\n3. E-filing credits: 0.70\u00d7420 = 294, 0.40\u00d7175 = 70, 0.25\u00d760 = 15 \u2192 379 filings \u00d7 $5 = **$1,895**\n4. Collected: $73,458 \u2212 $1,895 = **$71,563**\n5. Courthouse keeps 82%: $71,563 \u00d7 0.82 = $58,681.66 \u2192 **$58,682** (state gets $12,881.34)\n\nThe $9,400 passport revenue is excluded \u2014 the question asks only about filing fees.",
+  "tokens": {
+    "input": 16304,
+    "output": 437,
+    "reasoning": 178
+  },
+  "duration_ms": 5342,
+  "run_id": "t6_math__c7_spr",
+  "model": "opus",
+  "prompt_chars": 908
+}

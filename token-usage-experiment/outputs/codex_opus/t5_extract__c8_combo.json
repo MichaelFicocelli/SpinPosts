@@ -1,0 +1,40 @@
+{
+  "response": "```json\n{\"name\":\"Alex Chen\",\"years_experience\":9,\"skills\":[\"Go\",\"Python\",\"TypeScript\",\"Node.js\",\"Kafka\",\"Flink\",\"Postgres\",\"Redis\",\"Kubernetes\",\"Terraform\",\"AWS (EKS, RDS, Lambda)\",\"gRPC\",\"REST\",\"distributed tracing\",\"on-call\"],\"most_recent_role\":{\"title\":\"Staff Software Engineer\",\"company\":\"Northwind Health\",\"dates\":\"Mar 2023 - present\"}}\n```",
+  "model": "codex_opus",
+  "run_id": "t5_extract__c8_combo",
+  "duration_ms": 2254,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 8637,
+    "cache_read_input_tokens": 6407,
+    "output_tokens": 165,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8637,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 165,
+        "cache_read_input_tokens": 6407,
+        "cache_creation_input_tokens": 8637,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 8637
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "is_error": false
+}

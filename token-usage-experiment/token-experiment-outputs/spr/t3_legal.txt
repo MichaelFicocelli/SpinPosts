@@ -1,0 +1,45 @@
+Summarize following contract section non- technical reader, define key legal terms plain language.
+
+# Section 7 — Indemnification and Limitation of Liability
+
+7. 1** Mutual Indemnification.** Party(" Indemnifying Party")
+defend, indemnify, hold harmless other Party officers,
+directors, employees, agents(" Indemnified Parties") against
+third- party claims, demands, actions, suits, proceedings
+( collectively," Claims") resulting losses, damages, liabilities,
+settlements, judgments, fines, penalties, costs, expenses( including
+reasonable outside counsel fees)( collectively," Losses"), extent
+Claims arise out relate() Indemnifying Party' s breach
+representation, warranty, covenant hereunder;( b) Indemnifying Party' s
+gross negligence willful misconduct;( c) allegation
+Indemnifying Party' s Deliverables, used accordance Agreement,
+infringe misappropriate third party' s intellectual property rights,
+provided foregoing( c) apply extent Claim arises
+from (i) modifications made by the Indemnified Parties, (ii) combination of the
+Deliverables materials supplied Indemnifying Party where
+infringement occurred combination,( iii) use
+Deliverables outside scope expressly permitted under Agreement.
+
+7. 2** Indemnification Procedure.** Indemnified Parties() promptly
+notify Indemnifying Party writing Claim( provided failure
+notify relieve Indemnifying Party obligations except
+extent materially prejudiced thereby),( b) tender sole control
+defense settlement Claim Indemnifying Party( provided
+Indemnifying Party settle Claim admits liability,
+imposes non- monetary obligation, Indemnified Parties without their
+prior written consent, unreasonably withheld),( c) provide
+reasonable cooperation Indemnifying Party' s expense.
+
+7. 3** Limitation Liability.** EXCEPT( i) PARTY' S INDEMNIFICATION
+OBLIGATIONS UNDER SECTION 7. 1,( ii) BREACHES CONFIDENTIALITY UNDER SECTION
+9,( iii) PARTY' S GROSS NEGLIGENCE WILLFUL MISCONDUCT,( iv) PARTY' S
+INFRINGEMENT OTHER PARTY' S INTELLECTUAL PROPERTY RIGHTS, EVENT
+EITHER PARTY LIABLE OTHER INDIRECT, INCIDENTAL,
+CONSEQUENTIAL, SPECIAL, PUNITIVE, EXEMPLARY DAMAGES, LOST
+PROFITS, LOST REVENUE, LOSS GOODWILL, LOSS DATA, HOWEVER CAUSED
+UNDER THEORY LIABILITY, EVEN ADVISED POSSIBILITY
+DAMAGES. SUBJECT FOREGOING, PARTY' S TOTAL CUMULATIVE LIABILITY
+ARISING OUT RELATING AGREEMENT EXCEED GREATER
+() FEES PAID PAYABLE CUSTOMER PROVIDER UNDER AGREEMENT
+TWELVE( 12) MONTHS PRECEDING FIRST EVENT GIVING RISE LIABILITY,
+( B) ONE HUNDRED THOUSAND U. S. DOLLARS($ 100, 000).

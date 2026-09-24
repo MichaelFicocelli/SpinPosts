@@ -1,0 +1,40 @@
+{
+  "response": "Bugs:\n\n- **`reverse=True`** \u2014 docstring say oldest first. Running balance computed newest\u2192oldest = wrong. Fix: `txs.sort(key=lambda t: t[\"timestamp\"])`.\n- **`average_daily_balance` gaps** \u2014 day with no tx get 0 instead of carry-forward prior balance. Fix: walk days, keep `last = balances_by_day.get(day, last)`, start `last` = balance of last entry before `start_day` (0 if none).\n- **`top_accounts_by_activity` sort** \u2014 ascending, return *bottom* N. Fix: `reverse=True`.\n\nMinor: multi-tx same day \u2014 dict keeps last only; correct if sorted ascending (end-of-day balance), broken with `reverse=True`.",
+  "model": "codex_opus",
+  "run_id": "t1_bugs__c8_combo",
+  "duration_ms": 4480,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 15090,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 256,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15090,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 256,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 15090,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 15090
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "is_error": false
+}

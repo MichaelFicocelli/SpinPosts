@@ -17,14 +17,14 @@ import re
 from pathlib import Path
 from statistics import mean
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parent.parent
 SCORED = ROOT / "scored"
 RESULTS = json.loads((SCORED / "results.json").read_text())
 MANIFEST = json.loads((ROOT / "manifest.json").read_text())
 
 TASKS_ORDER = ["t1_bugs", "t2_tests", "t3_legal", "t4_meeting", "t5_extract", "t6_math"]
-CONDITIONS_ORDER = ["c1_baseline", "c2_detailed", "c3_caveman", "c4_html", "c5_rtk", "c6_hardcap", "c7_spr"]
-MODELS_ORDER = ["opus", "sonnet", "fable", "copilot"]
+CONDITIONS_ORDER = ["c1_baseline", "c2_detailed", "c3_caveman", "c4_html", "c5_rtk", "c6_hardcap", "c7_spr", "c8_combo"]
+MODELS_ORDER = ["opus", "sonnet", "fable", "copilot", "codex_opus", "codex_sonnet"]
 
 TASK_LABELS = {
     "t1_bugs": "T1. Find bugs in code",
@@ -42,11 +42,26 @@ COND_LABELS = {
     "c5_rtk": "rtk (CLI compression)",
     "c6_hardcap": "Hard output cap",
     "c7_spr": "SPR-compressed input",
+    "c8_combo": "Combo (caveman + hardcap + SPR)",
 }
-MODEL_LABELS = {"opus": "Opus 4.7", "sonnet": "Sonnet 4.5", "fable": "Fable 5.1", "copilot": "Copilot (GPT-5.4)"}
+MODEL_LABELS = {
+    "opus": "Opus 4.7",
+    "sonnet": "Sonnet 4.5",
+    "fable": "Fable 5.1",
+    "copilot": "Copilot (GPT-5.4)",
+    "codex_opus": "Opus 5 (CLI rerun)",
+    "codex_sonnet": "Sonnet 5 (CLI rerun)",
+}
 
 VERDICT_COLORS = {"success": "#4ade80", "partial": "#fbbf24", "fail": "#f87171", "missing": "#6b7280"}
-MODEL_COLORS = {"opus": "#a78bfa", "sonnet": "#38bdf8", "fable": "#f472b6", "copilot": "#34d399"}
+MODEL_COLORS = {
+    "opus": "#a78bfa",
+    "sonnet": "#38bdf8",
+    "fable": "#f472b6",
+    "copilot": "#34d399",
+    "codex_opus": "#c084fc",
+    "codex_sonnet": "#60a5fa",
+}
 
 
 def by(key, iterable):
@@ -133,7 +148,10 @@ def summarize_by_condition(model_filter=None):
 
 def render_run_detail(run):
     """Return HTML for one run's expandable detail."""
-    prompt_text = Path([m for m in MANIFEST if m["run_id"] == run["run_id"]][0]["prompt_file"]).read_text()
+    prompt_path = ROOT / "prompts" / f"{run['run_id']}.txt"
+    if not prompt_path.exists():
+        prompt_path = Path([m for m in MANIFEST if m["run_id"] == run["run_id"]][0]["prompt_file"])
+    prompt_text = prompt_path.read_text()
     return f"""
     <details class="run-detail">
         <summary>
@@ -166,22 +184,85 @@ def render_task_table(task_id):
         rows_by_cond.setdefault(r["condition_id"], {})[r["model"]] = r
 
     parts = ['<table class="matrix"><thead><tr><th>Condition</th>']
-    for m in MODELS_ORDER:
-        parts.append(f'<th>{esc(MODEL_LABELS[m])}</th>')
+    for i, m in enumerate(MODELS_ORDER):
+        sep = ' class="model-sep"' if i > 0 else ''
+        parts.append(f'<th{sep}>{esc(MODEL_LABELS[m])}</th>')
     parts.append('</tr></thead><tbody>')
     for cond_id in CONDITIONS_ORDER:
         row = rows_by_cond.get(cond_id, {})
         if not row:
             continue
         parts.append(f'<tr><th>{esc(COND_LABELS[cond_id])}</th>')
-        for m in MODELS_ORDER:
+        for i, m in enumerate(MODELS_ORDER):
+            sep = ' model-sep' if i > 0 else ''
             cell = row.get(m)
             if not cell:
-                parts.append('<td class="na">n/a</td>')
+                parts.append(f'<td class="na{sep}">n/a</td>')
                 continue
             v = cell["verdict"]
-            parts.append(f'<td class="cell v-{v}"><span class="v-pill">{v[0].upper()}</span> <span class="tok">{cell["total_tokens_est"]:,}</span></td>')
+            parts.append(f'<td class="cell v-{v}{sep}"><span class="v-pill">{v[0].upper()}</span> <span class="tok">{cell["total_tokens_est"]:,}</span></td>')
         parts.append('</tr>')
+    parts.append('</tbody></table>')
+    return "\n".join(parts)
+
+
+def render_rerun_comparison():
+    """Side-by-side of the original Opus/Sonnet columns versus the second-run
+    Opus 5 / Sonnet 5 CLI columns. Aggregates over every applicable run per
+    model (rtk excluded — the CLI-rerun columns did not cover it)."""
+    pairs = [
+        ("Opus", "opus", "codex_opus"),
+        ("Sonnet", "sonnet", "codex_sonnet"),
+    ]
+
+    def rows_for(model):
+        return [r for r in RESULTS
+                if r["model"] == model
+                and r["condition_id"] != "c5_rtk"
+                and r.get("status") == "ok"]
+
+    def score_pct(rows):
+        if not rows: return None
+        s = sum(1 for r in rows if r["verdict"] == "success") + 0.5 * sum(1 for r in rows if r["verdict"] == "partial")
+        return round(s / len(rows) * 100, 1)
+
+    parts = ['<h4>Original run vs CLI re-run (Opus 4.7 &rarr; Opus 5, Sonnet 4.5 &rarr; Sonnet 5)</h4>']
+    parts.append('<p style="color:#94a3b8;font-size:12px;margin:4px 0 8px">'
+                 'rtk excluded (the CLI-rerun columns did not run it). '
+                 'avg total tok = prompt+response tokens per run (chars÷4 estimate). '
+                 'score = 100% × successes + 50% × partials, averaged over the model\'s applicable runs.</p>')
+    parts.append('<table class="matrix summary-table"><thead><tr>'
+                 '<th>Family</th>'
+                 '<th>Original column</th>'
+                 '<th>score</th><th>avg total tok</th><th>avg response tok</th>'
+                 '<th>Re-run column</th>'
+                 '<th>score</th><th>avg total tok</th><th>avg response tok</th>'
+                 '<th>&Delta; score</th><th>&Delta; response tok</th>'
+                 '</tr></thead><tbody>')
+    for label, orig, rerun in pairs:
+        o = rows_for(orig)
+        n = rows_for(rerun)
+        o_score, n_score = score_pct(o), score_pct(n)
+        o_total = round(mean(r["total_tokens_est"] for r in o)) if o else 0
+        n_total = round(mean(r["total_tokens_est"] for r in n)) if n else 0
+        o_resp = round(mean(r["response_tokens_est"] for r in o)) if o else 0
+        n_resp = round(mean(r["response_tokens_est"] for r in n)) if n else 0
+        d_score = (n_score or 0) - (o_score or 0)
+        d_resp_pct = round((n_resp - o_resp) / o_resp * 100) if o_resp else 0
+        score_col = "#4ade80" if d_score > 0 else ("#f87171" if d_score < 0 else "#94a3b8")
+        resp_col = "#4ade80" if d_resp_pct < -5 else ("#f87171" if d_resp_pct > 5 else "#94a3b8")
+        d_score_str = f"+{d_score:.1f}pp" if d_score > 0 else f"{d_score:.1f}pp"
+        d_resp_str = f"+{d_resp_pct}%" if d_resp_pct > 0 else f"{d_resp_pct}%"
+        parts.append(
+            f'<tr><th>{esc(label)}</th>'
+            f'<td>{esc(MODEL_LABELS[orig])}</td>'
+            f'<td>{o_score}%</td><td>{o_total:,}</td><td>{o_resp:,}</td>'
+            f'<td>{esc(MODEL_LABELS[rerun])}</td>'
+            f'<td>{n_score}%</td><td>{n_total:,}</td><td>{n_resp:,}</td>'
+            f'<td style="color:{score_col};font-weight:600">{d_score_str}</td>'
+            f'<td style="color:{resp_col};font-weight:600">{d_resp_str}</td>'
+            f'</tr>'
+        )
     parts.append('</tbody></table>')
     return "\n".join(parts)
 
@@ -203,19 +284,22 @@ def render_condition_summary():
 
     parts = ['<h4>Condition impact summary</h4>']
     parts.append('<table class="matrix summary-table"><thead><tr><th rowspan="2">Condition</th>')
-    for m in MODELS_ORDER:
-        parts.append(f'<th colspan="3">{esc(MODEL_LABELS[m])}</th>')
+    for i, m in enumerate(MODELS_ORDER):
+        sep = ' class="model-sep"' if i > 0 else ''
+        parts.append(f'<th colspan="3"{sep}>{esc(MODEL_LABELS[m])}</th>')
     parts.append('</tr><tr>')
-    for _ in MODELS_ORDER:
-        parts.append('<th>avg tok</th><th>vs base</th><th>score</th>')
+    for i, _ in enumerate(MODELS_ORDER):
+        sep = ' class="model-sep"' if i > 0 else ''
+        parts.append(f'<th{sep}>avg tok</th><th>vs base</th><th>score</th>')
     parts.append('</tr></thead><tbody>')
 
     for cond_id in CONDITIONS_ORDER:
         parts.append(f'<tr><th>{esc(COND_LABELS[cond_id])}</th>')
-        for m in MODELS_ORDER:
+        for i, m in enumerate(MODELS_ORDER):
+            sep = ' model-sep' if i > 0 else ''
             rows = [r for r in RESULTS if r["condition_id"] == cond_id and r["model"] == m]
             if not rows:
-                parts.append('<td class="na">n/a</td><td class="na">n/a</td><td class="na">n/a</td>')
+                parts.append(f'<td class="na{sep}">n/a</td><td class="na">n/a</td><td class="na">n/a</td>')
                 continue
             avg = round(mean(r["total_tokens_est"] for r in rows))
             base = baseline_by_model.get(m, 0)
@@ -230,7 +314,7 @@ def render_condition_summary():
                 vs = f'<span style="color:{color};font-weight:600">{sign}{pct}%</span>'
             pct_score = score_pct(rows)
             score_color = '#4ade80' if (pct_score or 0) >= 90 else ('#fbbf24' if (pct_score or 0) >= 70 else '#f87171')
-            parts.append(f'<td>{avg:,}</td><td>{vs}</td><td><span style="color:{score_color};font-weight:600">{pct_score}%</span></td>')
+            parts.append(f'<td class="{sep.strip()}">{avg:,}</td><td>{vs}</td><td><span style="color:{score_color};font-weight:600">{pct_score}%</span></td>')
         parts.append('</tr>')
     parts.append('</tbody></table>')
     parts.append('<p class="caveat" style="color:#94a3b8;font-size:12px;margin:8px 0 12px">'
@@ -337,6 +421,12 @@ CONDITION_RECIPES = [
      "Preprocess the base prompt: strip common stopwords (\"the\", \"a\", \"of\", \"in\", "
      "\"to\", ...), collapse whitespace, keep code and heading lines intact. Prepend a "
      "header telling the model the input is SPR-compressed so it interprets charitably."),
+    ("c8_combo", "Combo (caveman + hardcap + SPR)",
+     "Stacks the three techniques that reduced tokens vs baseline in the earlier runs. "
+     "One shared preface directs the model to talk (and think) in caveman-speak, cap "
+     "output at 150 tokens with no preamble/closing, and treat the input as "
+     "SPR-compressed. The base prompt is then run through the same SPR compressor as "
+     "c7_spr before being appended. Every task is applicable."),
 ]
 
 
@@ -476,6 +566,7 @@ def render_page():
     .chart { display: block; max-width: 100%; height: auto; min-width: 500px; }
     table.matrix { border-collapse: collapse; width: 100%; margin: 8px 0 16px; font-size: 13px; }
     table.matrix th, table.matrix td { padding: 8px 10px; border: 1px solid #1f2937; text-align: left; }
+    table.matrix th.model-sep, table.matrix td.model-sep { border-left: 3px solid #64748b; }
     table.matrix th { background: #0f172a; color: #cbd5e1; font-weight: 500; }
     table.matrix td.cell { text-align: center; vertical-align: middle; }
     table.matrix td.na { color: #4b5563; text-align: center; font-style: italic; }
@@ -496,6 +587,8 @@ def render_page():
     .model-chip.sonnet { background: #075985; color: #bae6fd; }
     .model-chip.fable { background: #831843; color: #fbcfe8; }
     .model-chip.copilot { background: #064e3b; color: #a7f3d0; }
+    .model-chip.codex_opus { background: #581c87; color: #e9d5ff; }
+    .model-chip.codex_sonnet { background: #1e3a8a; color: #dbeafe; }
     .cond { color: #cbd5e1; }
     .verdict { padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; letter-spacing: 0.4px; }
     .verdict-success { background: #4ade80; color: #052e16; }
@@ -518,15 +611,16 @@ def render_page():
     footer { color: #6b7280; font-size: 11px; margin-top: 40px; text-align: center; }
     """
 
-    method_html = """
+    method_html = f"""
     <section class="method">
         <h2>Methodology</h2>
-        <p>6 text tasks by 7 prompt conditions by 4 models: Opus 4.7, Sonnet 4.5, Fable 5.1, and GitHub Copilot CLI on gpt-5.4. The rtk condition only applies to the two tasks where the model would invoke CLI tools, so it is marked n/a on the other four. Net: 38 runs per model, 152 runs total.</p>
+        <p>6 text tasks by 8 prompt conditions by 6 models: Opus 4.7, Sonnet 4.5, Fable 5.1, GitHub Copilot CLI on gpt-5.4, plus two second-run columns done through a different harness (see below): Opus 5 and Sonnet 5 via the standalone <code>claude</code> CLI. The rtk condition only applies to the two tasks where the model would invoke CLI tools, so it is marked n/a on the other four. The CLI-rerun columns skipped rtk entirely by design (Codex CLI wasn't available on that machine, so the intended provider swap couldn't happen). The combo condition (caveman + hardcap + SPR stacked) was added last and did not run on Copilot in this session because that CLI's OAuth token was unusable in the sandbox &mdash; those 6 cells are marked n/a. Net: {good_runs} usable runs.</p>
         <h3>Execution</h3>
         <ul>
-            <li>Each Claude run (Opus, Sonnet, Fable) ran in an isolated Claude Code sub-agent with a <code>model</code> override. The sub-agent read one prompt file, produced its answer, wrote the answer to a JSON file, and returned <code>DONE</code>.</li>
+            <li>Each Claude run in the original four columns (Opus 4.7, Sonnet 4.5, Fable 5.1) ran in an isolated Claude Code sub-agent with a <code>model</code> override. The sub-agent read one prompt file, produced its answer, wrote the answer to a JSON file, and returned <code>DONE</code>.</li>
             <li>Each Copilot run invoked the GitHub Copilot CLI (v1.0.82) with <code>copilot --yolo -p &lt;prompt&gt; --model gpt-5.4</code>. Copilot's trailing session-summary footer (Changes, Requests, Tokens, Resume lines) was stripped before saving the response.</li>
-            <li>Sub-agents and Copilot runs both start in fresh contexts, so runs do not carry state between them. Both harnesses add roughly constant system-prompt overhead per call that is not attributed to the task.</li>
+            <li>The two CLI-rerun columns were intended to be a Codex CLI comparison contributed by a second developer. Codex CLI was not available on that machine, so they ran <code>claude -p --output-format json --model claude-opus-5</code> and <code>--model claude-sonnet-5</code> instead, with tools disabled and a minimal system prompt so each run is a single-shot generation. This means the two columns compare newer Claude models to the older ones already in the report — not a cross-provider comparison.</li>
+            <li>Sub-agents, Copilot, and the <code>claude</code> CLI runs all start in fresh contexts, so runs do not carry state between them. Each harness adds roughly constant system-prompt overhead per call that is not attributed to the task.</li>
         </ul>
         <h3>Token measurement</h3>
         <ul>
@@ -542,6 +636,7 @@ def render_page():
             <li><strong>rtk (CLI compression).</strong> For tasks where the model uses CLI tools to gather signal, wrap those commands with the <code>rtk</code> proxy (github.com/rtk-ai/rtk) so their stdout is filtered before it reaches the model context. Uses <code>rtk read</code>, <code>rtk err</code>, and <code>rtk grep</code>. Applied to tasks 1 (bug find) and 2 (unit tests). Marked <em>n/a</em> for tasks that do not call CLI tools.</li>
             <li><strong>Hard output cap.</strong> Prepend an instruction to skip preamble, disclaimers, and closings, with a hard cap of 150 output tokens.</li>
             <li><strong>SPR-compressed input.</strong> Preprocess the prompt to drop stopwords and collapse whitespace, in the style of Sparse Priming Representations. Reduces input size at the cost of some grammar the model has to reconstruct.</li>
+            <li><strong>Combo (caveman + hardcap + SPR).</strong> Stack the three techniques that reduced tokens vs baseline in the earlier runs. One shared preface tells the model to talk and think in caveman-speak, respect a 150-token output cap with no preamble/closing, and treat the input as SPR-compressed. The base prompt is then run through the same SPR compressor before being appended.</li>
         </ul>
         <h3>Tasks</h3>
         <ul>
@@ -563,7 +658,7 @@ def render_page():
     body = f"""
     <main>
         <h1>Token-usage vs task-success experiment</h1>
-        <p class="subtitle">Comparing 3 Claude models × 7 prompt conditions × 6 tasks (114 runs).</p>
+        <p class="subtitle">Comparing 5 Claude models + Copilot × up to 8 prompt conditions × 6 tasks ({total_runs} runs; {good_runs} usable).</p>
 
         <div class="stats">
             <div class="stat"><div class="stat-label">Total runs</div><div class="stat-value">{total_runs}</div></div>
@@ -574,6 +669,7 @@ def render_page():
         </div>
 
         <h2>Overview</h2>
+        {render_rerun_comparison()}
         {render_condition_summary()}
         <div class="charts">
             <div class="chart-container">{bar_chart_grouped(token_data, labels, list(token_data.keys()), "Avg total tokens (prompt + response) per run, by condition", "tokens", token_colors, height=320)}</div>

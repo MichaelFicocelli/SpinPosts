@@ -1,0 +1,48 @@
+Summarize the following contract section for a non-technical reader, and define the key legal terms in plain language.
+
+# Section 7 — Indemnification and Limitation of Liability
+
+7.1 **Mutual Indemnification.** Each Party (the "Indemnifying Party") shall
+defend, indemnify, and hold harmless the other Party and its officers,
+directors, employees, and agents (the "Indemnified Parties") from and against
+any and all third-party claims, demands, actions, suits, or proceedings
+(collectively, "Claims") and all resulting losses, damages, liabilities,
+settlements, judgments, fines, penalties, costs, and expenses (including
+reasonable outside counsel fees) (collectively, "Losses"), to the extent such
+Claims arise out of or relate to (a) the Indemnifying Party's breach of any
+representation, warranty, or covenant hereunder; (b) the Indemnifying Party's
+gross negligence or willful misconduct; or (c) any allegation that the
+Indemnifying Party's Deliverables, when used in accordance with this Agreement,
+infringe or misappropriate any third party's intellectual property rights,
+provided that the foregoing (c) shall not apply to the extent a Claim arises
+from (i) modifications made by the Indemnified Parties, (ii) combination of the
+Deliverables with materials not supplied by the Indemnifying Party where the
+infringement would not have occurred but for such combination, or (iii) use of
+the Deliverables outside the scope expressly permitted under this Agreement.
+
+7.2 **Indemnification Procedure.** The Indemnified Parties shall (a) promptly
+notify the Indemnifying Party in writing of any Claim (provided that failure to
+so notify shall not relieve the Indemnifying Party of its obligations except to
+the extent it is materially prejudiced thereby), (b) tender sole control of the
+defense and settlement of the Claim to the Indemnifying Party (provided that
+the Indemnifying Party shall not settle any Claim that admits liability of, or
+imposes any non-monetary obligation on, the Indemnified Parties without their
+prior written consent, not to be unreasonably withheld), and (c) provide
+reasonable cooperation at the Indemnifying Party's expense.
+
+7.3 **Limitation of Liability.** EXCEPT FOR (i) A PARTY'S INDEMNIFICATION
+OBLIGATIONS UNDER SECTION 7.1, (ii) BREACHES OF CONFIDENTIALITY UNDER SECTION
+9, (iii) A PARTY'S GROSS NEGLIGENCE OR WILLFUL MISCONDUCT, OR (iv) A PARTY'S
+INFRINGEMENT OF THE OTHER PARTY'S INTELLECTUAL PROPERTY RIGHTS, IN NO EVENT
+SHALL EITHER PARTY BE LIABLE TO THE OTHER FOR ANY INDIRECT, INCIDENTAL,
+CONSEQUENTIAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES, OR FOR ANY LOST
+PROFITS, LOST REVENUE, LOSS OF GOODWILL, OR LOSS OF DATA, HOWEVER CAUSED AND
+UNDER ANY THEORY OF LIABILITY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES. SUBJECT TO THE FOREGOING, EACH PARTY'S TOTAL CUMULATIVE LIABILITY
+ARISING OUT OF OR RELATING TO THIS AGREEMENT SHALL NOT EXCEED THE GREATER OF
+(A) THE FEES PAID OR PAYABLE BY CUSTOMER TO PROVIDER UNDER THIS AGREEMENT IN
+THE TWELVE (12) MONTHS PRECEDING THE FIRST EVENT GIVING RISE TO LIABILITY, OR
+(B) ONE HUNDRED THOUSAND U.S. DOLLARS ($100,000).
+
+
+Respond with a complete standalone HTML document (with <!doctype html>, <head>, <style>, <body>) that presents the task and your answer clearly.

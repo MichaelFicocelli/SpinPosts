@@ -9,14 +9,14 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parent.parent
 INPUTS = ROOT / "inputs"
 PROMPTS = ROOT / "prompts"
 OUTPUTS = ROOT / "outputs"
 SCORED = ROOT / "scored"
 SCORED.mkdir(exist_ok=True)
 
-MODELS = ["opus", "sonnet", "fable", "copilot"]
+MODELS = ["opus", "sonnet", "fable", "copilot", "codex_opus", "codex_sonnet"]
 
 
 def norm(s: str) -> str:
@@ -332,7 +332,11 @@ def main():
     for entry in manifest:
         if not entry["applicable"]:
             continue
-        prompt_text = Path(entry["prompt_file"]).read_text()
+        prompt_path = PROMPTS / f"{entry['run_id']}.txt"
+        if not prompt_path.exists():
+            # Fall back to the absolute path recorded in the manifest.
+            prompt_path = Path(entry["prompt_file"])
+        prompt_text = prompt_path.read_text()
         prompt_chars = len(prompt_text)
         prompt_tokens = round(prompt_chars / 4)
 

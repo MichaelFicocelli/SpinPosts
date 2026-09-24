@@ -1,0 +1,12 @@
+{
+  "response": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Resume Extraction</title>\n<style>\n  body { font-family: -apple-system, system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; line-height: 1.5; }\n  h1 { font-size: 1.5rem; }\n  h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 1px solid #ddd; padding-bottom: .25rem; }\n  pre { background: #f5f5f7; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: .9rem; }\n  .note { color: #555; font-size: .9rem; }\n</style>\n</head>\n<body>\n<h1>Resume Extraction</h1>\n\n<h2>Task</h2>\n<p>Extract information from Alex Chen's resume into a JSON object with these fields:</p>\n<ul>\n  <li><code>name</code> (string)</li>\n  <li><code>years_experience</code> (integer)</li>\n  <li><code>skills</code> (array of strings)</li>\n  <li><code>most_recent_role</code> (object with <code>title</code>, <code>company</code>, <code>dates</code>)</li>\n</ul>\n\n<h2>Answer</h2>\n<pre>{\n  \"name\": \"Alex Chen\",\n  \"years_experience\": 9,\n  \"skills\": [\n    \"Go\",\n    \"Python\",\n    \"TypeScript\",\n    \"Node.js\",\n    \"Kafka\",\n    \"Flink\",\n    \"Postgres\",\n    \"Redis\",\n    \"Kubernetes\",\n    \"Terraform\",\n    \"AWS (EKS, RDS, Lambda)\",\n    \"gRPC\",\n    \"REST\",\n    \"distributed tracing\",\n    \"on-call\"\n  ],\n  \"most_recent_role\": {\n    \"title\": \"Staff Software Engineer\",\n    \"company\": \"Northwind Health\",\n    \"dates\": \"Mar 2023 to present\"\n  }\n}</pre>\n\n<p class=\"note\">Notes: <code>years_experience</code> uses the 9 years stated in the resume summary. Skills are taken from the Skills section as listed.</p>\n</body>\n</html>",
+  "tokens": {
+    "input": 16733,
+    "output": 768,
+    "reasoning": 0
+  },
+  "duration_ms": 5894,
+  "run_id": "t5_extract__c4_html",
+  "model": "sonnet",
+  "prompt_chars": 1784
+}

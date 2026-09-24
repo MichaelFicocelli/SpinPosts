@@ -1,0 +1,12 @@
+{
+  "response": "# Q3 Planning Sync \u2014 Summary (2026-08-27)\n\n## Key points\n- Reconciliation revamp is the Q3 anchor; current engine fails on multi-currency batches (3 incidents this quarter, reconciliation support tickets +40% QoQ).\n- Build over buy on reconciliation: Recur ($180K/yr) and LedgerFlow ($140K/yr, no jurisdiction-specific tax codes) both still require ~3 engineer-weeks of integration.\n- Reconciliation rewrite scoped at ~6 engineer-weeks including FX rounding module migration, plus 2 weeks of Karim's time from platform for ledger integration.\n- Mobile receipt-capture ships v1 without bulk-select; bulk-select (~1 sprint) becomes a roadmap fast-follow rather than displacing reconciliation work.\n- User testing surfaced two needs: bulk-select before upload, and a more prominent OCR confidence indicator.\n- Vendor payout SLA target is 48h p95 from invoice approval vs. current 71h, achievable by mid-Q3 via two fixes: eng cutting the ACH batching window 12h\u21924h, ops adding a second west-coast-shift approver.\n- ACH window change costs ~half a sprint of eng time plus added monitoring overhead and requires SRE sign-off; decision deferred pending trade-off analysis, with intermediate targets as the fallback if SRE objects.\n- Audit-log retention update pushed to Q4, confirmed with Legal.\n- Internal admin-tool refresh stays with the intern crew, unchanged.\n- HR flagged a spike in bug-bash burnout in engineering; a rotating on-call proposal was requested as the response.\n\n## Action items\n- Marcus: Confirm Karim's availability with his manager, by end of this week.\n- Marcus: Propose a rotating on-call structure, by Aug 31.\n- Marcus + Jenna: Complete the ACH batching-window trade-off analysis (incl. SRE monitoring load) and bring it back, by next week's meeting.\n- Dan: Update mobile receipt-capture specs to reflect v1 without bulk-select, by Wednesday.\n- Priya: Add bulk-select to the roadmap as a fast-follow, before Q3 scope lock.\n- Priya: Circulate the Q3 scope draft for review, Thursday morning (scope locks Friday).\n- Sara: Take locked Q3 scope to exec review, Monday.",
+  "tokens": {
+    "input": 17519,
+    "output": 839,
+    "reasoning": 0
+  },
+  "duration_ms": 9645,
+  "run_id": "t4_meeting__c2_detailed",
+  "model": "opus",
+  "prompt_chars": 4082
+}

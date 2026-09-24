@@ -1,0 +1,48 @@
+Summarize the following meeting transcript as bullet points covering the key decisions/points and the next steps / action items.
+
+# Q3 Planning — Product / Engineering / Ops sync — 2026-08-27
+
+**Attendees:** Priya (PM), Marcus (Eng lead), Jenna (Ops), Dan (Design), Sara (VP Product)
+
+---
+
+**Priya:** Thanks all for joining. Big agenda — we need to lock Q3 scope by Friday, then Sara can take it to the exec review Monday. Three headliners on the table: the reconciliation revamp, the mobile receipt-capture feature, and the vendor payout SLA push. Let's start with reconciliation.
+
+**Marcus:** So on reconciliation — the current engine chokes on multi-currency batches. We've had three incidents this quarter and support ticket volume for reconciliation issues is up 40% quarter over quarter. My team scoped a rewrite that's roughly six engineer-weeks. That includes migrating the FX rounding module. We'd need Karim from platform for two of those weeks to help with the ledger integration.
+
+**Sara:** Six engineer-weeks is a lot. What's the buy-vs-build here? Is there a vendor?
+
+**Marcus:** We looked at two — Recur and LedgerFlow. Recur is $180K/year for our volume, LedgerFlow is $140K but doesn't handle our jurisdiction-specific tax codes. Both would still need integration work, probably three engineer-weeks. Not a great deal.
+
+**Sara:** Okay, build wins. Priya, put reconciliation as the Q3 anchor. Marcus, sync with Karim's manager this week and confirm his availability.
+
+**Priya:** Noted. Mobile receipt-capture next. Dan, where are we on design?
+
+**Dan:** Flows are done, prototype tested with six users. Two big things came out of testing: users want to bulk-select receipts before uploading, and the OCR confidence indicator needs to be way more prominent. Bulk-select is not currently in scope; that would add maybe a sprint of work.
+
+**Marcus:** If bulk-select is a sprint I'd want to descope something else. We're already stretched with reconciliation.
+
+**Sara:** Let's ship v1 without bulk-select. Add a note to the roadmap for a fast-follow. Dan, please update the specs.
+
+**Dan:** Will do by Wednesday.
+
+**Priya:** Vendor payout SLA — Jenna, this one's yours.
+
+**Jenna:** Right. The finance team wants us to guarantee payouts within 48 hours from invoice approval. Current p95 is 71 hours. Two bottlenecks: manual approval routing (that's ops), and the batching window on the ACH send job (that's eng). If eng cuts the batching window from 12 hours to 4, and ops adds a second approver on the west-coast shift, we can hit 48h p95 by mid-Q3.
+
+**Marcus:** Cutting the ACH batch window means more ACH files per day, more monitoring overhead. Doable but not free — half a sprint of eng time plus SRE sign-off.
+
+**Sara:** Do the trade-off analysis and bring it back next week. If SRE says the monitoring load is manageable, we do it. Otherwise we look at intermediate targets.
+
+**Priya:** Two smaller things — the audit-log retention update is being pushed to Q4, that's confirmed with Legal. And the internal admin-tool refresh is still owned by the intern crew, no changes there.
+
+**Sara:** One last thing. HR flagged that we've had a spike in bug-bash burnout on the engineering side. Marcus, can you propose a rotating on-call structure by end of month? Doesn't need to be big, just a proposal.
+
+**Marcus:** Yep, I'll have something by the 31st.
+
+**Priya:** Okay. Recap next steps then. Marcus: confirm Karim, propose on-call rotation by 31st, do ACH trade-off analysis. Dan: update mobile specs by Wednesday. Jenna: pair with Marcus on the ACH analysis. Sara: exec review Monday. I'll circulate the scope draft Thursday morning for review before Friday lock.
+
+**Sara:** Good. Thanks everyone.
+
+
+Respond with a complete standalone HTML document (with <!doctype html>, <head>, <style>, <body>) that presents the task and your answer clearly.

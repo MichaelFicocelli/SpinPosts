@@ -1,0 +1,12 @@
+{
+  "response": "## Q3 Planning Sync (2026-08-27): Summary\n\n### Key decisions and points\n- **Timeline:** Q3 scope locks Friday. Sara takes it to exec review Monday.\n- **Reconciliation revamp is the Q3 anchor (build, not buy).**\n  - The current engine fails on multi-currency batches: 3 incidents this quarter, and reconciliation support tickets are up 40% QoQ.\n  - The rewrite is about 6 engineer-weeks, including the FX rounding module migration. It needs Karim (platform) for 2 of those weeks.\n  - Vendors were rejected. Recur costs $180K/yr. LedgerFlow costs $140K/yr but doesn't support the jurisdiction-specific tax codes. Both would still need about 3 engineer-weeks of integration.\n- **Mobile receipt-capture: ship v1 without bulk-select.**\n  - The prototype was tested with 6 users. Feedback: they want bulk-select, and the OCR confidence indicator needs to be more prominent.\n  - Bulk-select would add about a sprint, so it goes on the roadmap as a fast-follow.\n- **Vendor payout SLA (48h from invoice approval; current p95 is 71h): decision pending.**\n  - Plan: eng cuts the ACH batching window from 12h to 4h, and ops adds a second west-coast approver. That would hit 48h p95 by mid-Q3.\n  - The cost is about half a sprint of eng time, plus more ACH files and monitoring, and SRE sign-off.\n  - If SRE says the load is manageable, do it. Otherwise, consider intermediate targets.\n- **Other items:**\n  - Audit-log retention update is pushed to Q4 (confirmed with Legal).\n  - Admin-tool refresh stays with the intern crew.\n  - HR flagged engineering burnout from bug-bash load, so a rotating on-call proposal is needed.\n\n### Next steps / action items\n- **Marcus**\n  - Confirm Karim's availability with his manager (this week).\n  - Do the ACH trade-off analysis, including SRE input, and bring it back next week.\n  - Propose an on-call rotation by the 31st.\n- **Dan:** Update the mobile specs by Wednesday, including the OCR indicator change and the bulk-select roadmap note.\n- **Jenna:** Pair with Marcus on the ACH trade-off analysis.\n- **Priya**\n  - Circulate the scope draft Thursday morning.\n  - Add the bulk-select fast-follow to the roadmap.\n  - Set reconciliation as the Q3 anchor.\n- **Sara:** Present at exec review Monday.",
+  "tokens": {
+    "input": 17444,
+    "output": 905,
+    "reasoning": 0
+  },
+  "duration_ms": 8466,
+  "run_id": "t4_meeting__c1_baseline",
+  "model": "sonnet",
+  "prompt_chars": 3715
+}

@@ -1,0 +1,12 @@
+{
+  "response": "- Base: 35,700 + 21,000 + 12,600 = 69,300\n- +6%: 69,300 \u00d7 1.06 = 73,458\n- E-credits: 294 + 70 + 15 = 379 \u2192 379 \u00d7 $5 = 1,895\n- Collected: 73,458 \u2212 1,895 = 71,563\n- Retained: 71,563 \u00d7 0.82 = 58,681.66\n\n**$58,682** (passport $9,400 excluded)",
+  "tokens": {
+    "input": 16413,
+    "output": 254,
+    "reasoning": 104
+  },
+  "duration_ms": 4946,
+  "run_id": "t6_math__c6_hardcap",
+  "model": "opus",
+  "prompt_chars": 1252
+}

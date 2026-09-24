@@ -1,0 +1,12 @@
+{
+  "response": "- **Sort order:** `reverse=True` sorts newest first, but the running balance needs oldest first. Fix: remove `reverse=True`.\n- **Daily balance carry-forward:** in `average_daily_balance`, days with no transactions use `0`, but they should carry the prior balance. Fix: iterate the days in order, keep a `last` balance, and use `last = balances_by_day.get(day, last)`. Seed `last` with the balance before `start_day`.\n- **Last balance per day:** this depends on history being sorted oldest first. After fixing the sort, the last write per day wins, which is correct.\n- **Top accounts:** the sort is ascending, so it returns the least active accounts. Fix: pass `reverse=True`, or use `key=lambda kv: -kv[1]`.\n- **Empty or invalid window:** if `end_day == start_day`, the division raises `ZeroDivisionError`. Fix: guard with `if end_day <= start_day: return 0`.\n- **Money as float:** float arithmetic gives rounding errors. Fix: use `Decimal` or integer cents.\n- **Unknown `kind`:** any value other than \"credit\" is treated as a debit. Fix: validate `kind` and raise on an unknown value.",
+  "tokens": {
+    "input": 16801,
+    "output": 416,
+    "reasoning": 0
+  },
+  "duration_ms": 5214,
+  "run_id": "t1_bugs__c6_hardcap",
+  "model": "sonnet",
+  "prompt_chars": 2122
+}

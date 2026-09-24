@@ -1,0 +1,40 @@
+{
+  "response": "- Base: 420\u00d785=35,700; 175\u00d7120=21,000; 60\u00d7210=12,600 \u2192 69,300\n- +6%: 69,300\u00d71.06 = 73,458\n- E-credits: 294+70+15=379 \u2192 379\u00d75 = 1,895\n- Collected: 73,458\u22121,895 = 71,563\n- Retain 82%: 71,563\u00d70.82 = 58,681.66\n- Passport 9,400 ignored (separate)\n\n**Answer: $58,682**",
+  "model": "codex_opus",
+  "run_id": "t6_math__c8_combo",
+  "duration_ms": 4368,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 8309,
+    "cache_read_input_tokens": 6407,
+    "output_tokens": 340,
+    "output_tokens_details": {
+      "thinking_tokens": 182
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8309,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 340,
+        "cache_read_input_tokens": 6407,
+        "cache_creation_input_tokens": 8309,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 8309
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "is_error": false
+}

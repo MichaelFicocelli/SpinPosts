@@ -1,0 +1,45 @@
+Summarize following meeting transcript bullet points covering key decisions/ points next steps/ action items.
+
+# Q3 Planning — Product / Engineering / Ops sync — 2026-08-27
+
+**Attendees:** Priya( PM), Marcus( Eng lead), Jenna( Ops), Dan( Design), Sara( VP Product)
+
+--- 
+
+**Priya:** Thanks joining. Big agenda— we need lock Q3 scope Friday, Sara can take exec review Monday. Three headliners table: reconciliation revamp, mobile receipt- capture feature, vendor payout SLA push. Let' s start reconciliation.
+
+**Marcus:** reconciliation— current engine chokes multi- currency batches. We' ve three incidents quarter support ticket volume reconciliation issues up 40% quarter quarter. My team scoped rewrite' s roughly six engineer- weeks. includes migrating FX rounding module. We' d need Karim platform two weeks help ledger integration.
+
+**Sara:** Six engineer- weeks lot. What' s buy- vs- build here? there vendor?
+
+**Marcus:** We looked two— Recur LedgerFlow. Recur$ 180K/ year our volume, LedgerFlow$ 140K doesn' t handle our jurisdiction- specific tax codes. Both still need integration work, probably three engineer- weeks. great deal.
+
+**Sara:** Okay, build wins. Priya, put reconciliation Q3 anchor. Marcus, sync Karim' s manager week confirm his availability.
+
+**Priya:** Noted. Mobile receipt- capture next. Dan, where we design?
+
+**Dan:** Flows done, prototype tested six users. Two big things came out testing: users want bulk- select receipts before uploading, OCR confidence indicator needs way prominent. Bulk- select currently scope; add maybe sprint work.
+
+**Marcus:** bulk- select sprint I' d want descope something else. We' re already stretched reconciliation.
+
+**Sara:** Let' s ship v1 without bulk- select. Add note roadmap fast- follow. Dan, please update specs.
+
+**Dan:** Wednesday.
+
+**Priya:** Vendor payout SLA— Jenna, one' s yours.
+
+**Jenna:** Right. finance team wants us guarantee payouts within 48 hours invoice approval. Current p95 71 hours. Two bottlenecks: manual approval routing(' s ops), batching window ACH send job(' s eng). eng cuts batching window 12 hours 4, ops adds second approver west- coast shift, we can hit 48h p95 mid- Q3.
+
+**Marcus:** Cutting ACH batch window means ACH files per day, monitoring overhead. Doable free— half sprint eng time plus SRE sign- off.
+
+**Sara:** trade- off analysis bring back next week. SRE says monitoring load manageable, we. Otherwise we look intermediate targets.
+
+**Priya:** Two smaller things— audit- log retention update pushed Q4,' s confirmed Legal. internal admin- tool refresh still owned intern crew, changes there.
+
+**Sara:** One last thing. HR flagged we' ve spike bug- bash burnout engineering side. Marcus, can you propose rotating- call structure end month? Doesn' t need big, proposal.
+
+**Marcus:** Yep, I' ll something 31st.
+
+**Priya:** Okay. Recap next steps. Marcus: confirm Karim, propose- call rotation 31st, ACH trade- off analysis. Dan: update mobile specs Wednesday. Jenna: pair Marcus ACH analysis. Sara: exec review Monday. I' ll circulate scope draft Thursday morning review before Friday lock.
+
+**Sara:** Good. Thanks everyone.

@@ -7,7 +7,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parent.parent
 INPUTS = ROOT / "inputs"
 PROMPTS = ROOT / "prompts"
 PROMPTS.mkdir(exist_ok=True)
@@ -270,6 +270,22 @@ def cond_spr(base_prompt: str, task: dict) -> str:
     return header + compress_prose(base_prompt)
 
 
+def cond_combo(base_prompt: str, task: dict) -> str:
+    # Stack the three techniques that reduced token use vs baseline in the earlier
+    # runs: caveman-speak (drop grammatical filler in output AND thinking),
+    # hard output cap (no preamble, 150-token ceiling), and SPR compression on
+    # the input. Prefaces are stated once and terse so the directive is clear
+    # without spending many tokens re-stating either technique.
+    preface = (
+        "CAVEMAN MODE + HARD CAP. Talk caveman: drop 'the', 'a', 'is', 'are', 'that', "
+        "'to', 'of' when meaning still clear. Short words. THINK caveman too. "
+        "OUTPUT: minimum tokens, no preamble, no disclaimers, no restating task, no "
+        "closing. Hard cap 150 output tokens. Terse bullets or JSON. Solve correctly.\n\n"
+        "TASK (input SPR-compressed, interpret charitably):\n"
+    )
+    return preface + compress_prose(base_prompt)
+
+
 CONDITIONS = [
     ("c1_baseline", "Baseline", cond_baseline),
     ("c2_detailed", "Detailed instructions", cond_detailed),
@@ -278,6 +294,7 @@ CONDITIONS = [
     ("c5_rtk", "rtk (CLI compression)", cond_rtk),
     ("c6_hardcap", "Hard output cap", cond_hardcap),
     ("c7_spr", "SPR-compressed input", cond_spr),
+    ("c8_combo", "Combo: caveman + hardcap + SPR", cond_combo),
 ]
 
 

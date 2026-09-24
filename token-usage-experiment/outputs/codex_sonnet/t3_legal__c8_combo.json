@@ -1,0 +1,40 @@
+{
+  "response": "**Sec 7 Summary \u2014 plain words**\n\n- **Indemnify**: pay for other side's losses/legal costs.\n- **7.1**: Each side covers other if: (a) it breaks contract promise, (b) it acts recklessly/badly, (c) its deliverable steals someone else's IP \u2014 unless other side modified it, mixed it wrong, or misused it.\n- **7.2**: Hurt side must tell other side quick, let them run defense/settlement (can't force bad settlement on you), and help out.\n- **7.3 Limitation Liability**: Neither side owes indirect/lost-profit/data-loss damages \u2014 except for indemnity, confidentiality breach, gross misconduct, or IP theft. Total liability capped at bigger of: 12 months' fees paid, or $100,000.",
+  "model": "codex_sonnet",
+  "run_id": "t3_legal__c8_combo",
+  "duration_ms": 5308,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 9274,
+    "cache_read_input_tokens": 6475,
+    "output_tokens": 262,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 9274,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 262,
+        "cache_read_input_tokens": 6475,
+        "cache_creation_input_tokens": 9274,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 9274
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "is_error": false
+}

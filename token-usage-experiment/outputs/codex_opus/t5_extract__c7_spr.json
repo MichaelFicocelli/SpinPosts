@@ -1,0 +1,12 @@
+{
+  "response": "{\"name\":\"Alex Chen\",\"years_experience\":9,\"skills\":[\"Go\",\"Python\",\"TypeScript\",\"Node.js\",\"Kafka\",\"Flink\",\"Postgres\",\"Redis\",\"Kubernetes\",\"Terraform\",\"AWS (EKS, RDS, Lambda)\",\"gRPC\",\"REST\",\"distributed tracing\",\"on-call\"],\"most_recent_role\":{\"title\":\"Staff Software Engineer\",\"company\":\"Northwind Health\",\"dates\":\"Mar 2023 \u2013 present\"}}",
+  "tokens": {
+    "input": 16632,
+    "output": 160,
+    "reasoning": 0
+  },
+  "duration_ms": 2343,
+  "run_id": "t5_extract__c7_spr",
+  "model": "opus",
+  "prompt_chars": 1590
+}

@@ -1,9 +1,20 @@
 {
-  "total": 152,
-  "ok": 152,
-  "missing": 0,
-  "success": 144,
-  "partial": 6,
-  "fail": 2,
-  "missing_ids": []
+  "total": 264,
+  "ok": 254,
+  "missing": 10,
+  "success": 235,
+  "partial": 14,
+  "fail": 15,
+  "missing_ids": [
+    "t1_bugs__c5_rtk/codex_opus",
+    "t1_bugs__c5_rtk/codex_sonnet",
+    "t1_bugs__c8_combo/copilot",
+    "t2_tests__c5_rtk/codex_opus",
+    "t2_tests__c5_rtk/codex_sonnet",
+    "t2_tests__c8_combo/copilot",
+    "t3_legal__c8_combo/copilot",
+    "t4_meeting__c8_combo/copilot",
+    "t5_extract__c8_combo/copilot",
+    "t6_math__c8_combo/copilot"
+  ]
 }

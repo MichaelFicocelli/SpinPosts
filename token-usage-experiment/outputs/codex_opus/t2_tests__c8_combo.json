@@ -1,0 +1,40 @@
+{
+  "response": "```python\nimport pytest\nfrom datetime import date\nfrom latefee import LateFeeCalculator  # adjust import\n\nMON = date(2024, 1, 1)  # Monday\n\ndef calc(today): return LateFeeCalculator(today)\n\ndef test_default_today_no_arg():\n    assert LateFeeCalculator().compute_fee_cents(0, MON) == 0\n\n@pytest.mark.parametrize(\"bal\", [0, -100])\ndef test_nonpositive_balance(bal):\n    assert calc(date(2025, 1, 1)).compute_fee_cents(bal, MON) == 0\n\ndef test_end_before_start():\n    assert calc(date(2023, 1, 1)).compute_fee_cents(100000, MON) == 0\n\ndef test_end_equals_start():\n    assert calc(MON).compute_fee_cents(100000, MON) == 0\n\ndef test_within_grace_exact_10_weekdays():\n    # 14 cal days = 10 weekdays\n    assert calc(MON + __import__(\"datetime\").timedelta(days=14)).compute_fee_cents(100000, MON) == 0\n\ndef test_weekend_skipped():\n    c = calc(date(2024, 1, 8))  # 5 weekdays\n    assert c.compute_fee_cents(100000, MON) == 0\n\ndef test_min_fee_floor():\n    # 11 weekdays -> 1 billable day -> tiny raw fee\n    assert calc(date(2024, 1, 16)).compute_fee_cents(100000, MON) == 500\n\ndef test_normal_fee_between_bounds():\n    # large balance, 1 billable day: 10_000_000 * .0005 = 5000\n    assert calc(date(2024, 1, 16)).compute_fee_cents(10_000_000, MON) == 5000\n\ndef test_max_cap():\n    assert calc(date(2026, 1, 1)).compute_fee_cents(10_000_000, MON) == 2_500_000\n\ndef test_round_half_up():\n    # raw = 1000*.0005*1 = 0.5 -> 1, but min fee applies\n    assert calc(date(2024, 1, 16)).compute_fee_cents(1000, MON) == 500\n```",
+  "model": "codex_opus",
+  "run_id": "t2_tests__c8_combo",
+  "duration_ms": 7557,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 8694,
+    "cache_read_input_tokens": 6407,
+    "output_tokens": 726,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8694,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 726,
+        "cache_read_input_tokens": 6407,
+        "cache_creation_input_tokens": 8694,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 8694
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "is_error": false
+}
