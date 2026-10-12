@@ -1,0 +1,9 @@
+{
+  "response": "Civil:  \n$420 × $85 × 1.06 = $37,842  \nE-file credit: $420 × 70% × $5 = $1,470  \nCollected: $37,842 − $1,470 = $36,372\n\nFamily:  \n$175 × $120 × 1.06 = $22,260  \nE-file credit: $175 × 40% × $5 = $350  \nCollected: $22,260 − $350 = $21,910\n\nProbate:  \n$60 × $210 × 1.06 = $13,356  \nE-file credit: $60 × 25% × $5 = $75  \nCollected: $13,356 − $75 = $13,281\n\nTotal filing fees:  \n$36,372 + $21,910 + $13,281 = $71,563\n\nCourt keeps 82%:  \n$71,563 × 0.82 = $58,681.66\n\nPassport cash not count.\n\nFinal: **$58,682**",
+  "tokens": {
+    "input": 16461,
+    "output": 331,
+    "reasoning": 105
+  },
+  "duration_ms": 9912
+}

@@ -1,0 +1,9 @@
+{
+  "response": "1. **Base fees per case type**\n   - Civil: 420 × $85 = **$35,700**\n   - Family law: 175 × $120 = **$21,000**\n   - Probate: 60 × $210 = **$12,600**\n\n2. **Subtotal:** $35,700 + $21,000 + $12,600 = **$69,300**\n\n3. **Surcharge applied:** 6% × $69,300 = **$4,158**\n\n4. **Electronic-filing credits**\n   - Civil: 420 × 70% × $5 = **$1,470**\n   - Family law: 175 × 40% × $5 = **$350**\n   - Probate: 60 × 25% × $5 = **$75**\n   - Total credit: **$1,895**\n\n5. **Net collected:** $69,300 + $4,158 − $1,895 = **$71,563**\n\n6. **Courthouse’s 82% share:** $71,563 × 82% = **$58,681.66**\n\nThe $9,400 passport-services revenue is out of scope.\n\nFINAL: **$58,682**",
+  "tokens": {
+    "input": 14949,
+    "output": 389,
+    "reasoning": 125
+  },
+  "duration_ms": 9723
+}

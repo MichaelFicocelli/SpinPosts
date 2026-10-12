@@ -1,0 +1,9 @@
+{
+  "response": "Civil:\n\n- Base: 420 × $85 = $35,700\n- 6% surcharge: $35,700 × 0.06 = $2,142\n- E-file credit: 420 × 70% × $5 = $1,470\n- Collected: $35,700 + $2,142 − $1,470 = $36,372\n\nFamily:\n\n- Base: 175 × $120 = $21,000\n- Surcharge: $1,260\n- Credit: 175 × 40% × $5 = $350\n- Collected: $21,000 + $1,260 − $350 = $21,910\n\nProbate:\n\n- Base: 60 × $210 = $12,600\n- Surcharge: $756\n- Credit: 60 × 25% × $5 = $75\n- Collected: $12,600 + $756 − $75 = $13,281\n\nTotal filing fees:\n\n$36,372 + $21,910 + $13,281 = $71,563\n\nCourthouse keeps 82%:\n\n$71,563 × 0.82 = $58,681.66\n\nFinal answer: **$58,682**\n\nPassport money not counted.",
+  "tokens": {
+    "input": 14926,
+    "output": 426,
+    "reasoning": 154
+  },
+  "duration_ms": 11358
+}

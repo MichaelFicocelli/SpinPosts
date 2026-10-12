@@ -1,0 +1,20 @@
+{
+  "model": "gpt-5.4",
+  "run_id": "t2_tests__c2_detailed",
+  "exit_code": 1,
+  "duration_ms": 3344,
+  "errors": [
+    {
+      "type": "error",
+      "message": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.4' model is not supported when using Codex with a ChatGPT account.\"}}"
+    },
+    {
+      "type": "turn.failed",
+      "error": {
+        "message": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-5.4' model is not supported when using Codex with a ChatGPT account.\"}}"
+      }
+    }
+  ],
+  "stdout_tail": "{\"type\":\"thread.started\",\"thread_id\":\"01a0d472-afd4-7fc1-932c-2d87f58d6e0a\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"error\",\"message\":\"Model metadata for `gpt-5.4` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.\"}}\n{\"type\":\"turn.started\"}\n{\"type\":\"error\",\"message\":\"{\\\"type\\\":\\\"error\\\",\\\"status\\\":400,\\\"error\\\":{\\\"type\\\":\\\"invalid_request_error\\\",\\\"message\\\":\\\"The 'gpt-5.4' model is not supported when using Codex with a ChatGPT account.\\\"}}\"}\n{\"type\":\"turn.failed\",\"error\":{\"message\":\"{\\\"type\\\":\\\"error\\\",\\\"status\\\":400,\\\"error\\\":{\\\"type\\\":\\\"invalid_request_error\\\",\\\"message\\\":\\\"The 'gpt-5.4' model is not supported when using Codex with a ChatGPT account.\\\"}}\"}}\n",
+  "stderr_tail": ""
+}

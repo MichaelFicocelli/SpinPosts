@@ -1,0 +1,9 @@
+{
+  "model": "gpt-5.4",
+  "run_id": "t5_extract__c7_spr",
+  "exit_code": 1,
+  "duration_ms": 258,
+  "errors": [],
+  "stdout_tail": "{\"type\":\"thread.started\",\"thread_id\":\"01a0d473-1be0-7740-ba73-8ffb8d29ada6\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"error\",\"message\":\"Model metadata for `gpt-5.4` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.\"}}\n{\"type\":\"turn.started\"}\n",
+  "stderr_tail": ""
+}

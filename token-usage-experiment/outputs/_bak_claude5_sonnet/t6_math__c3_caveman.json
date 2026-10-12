@@ -1,0 +1,12 @@
+{
+  "response": "Base total:\n- Civil: 420\u00d785 = 35,700\n- Family: 175\u00d7120 = 21,000\n- Probate: 60\u00d7210 = 12,600\n- Sum = 69,300\n\nSurcharge 6%: 69,300\u00d71.06 = 73,458\n\nE-file credits:\n- Civil: 0.70\u00d7420 = 294\n- Family: 0.40\u00d7175 = 70\n- Probate: 0.25\u00d760 = 15\n- Total = 379 filings \u00d7 $5 = 1,895\n\nCollected: 73,458 \u2212 1,895 = 71,563\n\nRetain 82%: 71,563\u00d70.82 = 58,681.66\n\nPassport $9,400: ignore, not filing fee.\n\n**Answer: $58,682**",
+  "tokens": {
+    "input": 16486,
+    "output": 235,
+    "reasoning": 0
+  },
+  "duration_ms": 3266,
+  "run_id": "t6_math__c3_caveman",
+  "model": "sonnet",
+  "prompt_chars": 1256
+}

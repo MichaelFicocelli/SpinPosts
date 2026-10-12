@@ -1,0 +1,9 @@
+{
+  "response": "Base+surcharge: $69,300 × 1.06 = $73,458  \nCredits: (294 + 70 + 15) × $5 = $1,895  \nCollected: $73,458 − $1,895 = $71,563  \nRetained: $71,563 × 82% = $58,681.66  \n\n**$58,682**",
+  "tokens": {
+    "input": 16446,
+    "output": 163,
+    "reasoning": 76
+  },
+  "duration_ms": 6697
+}

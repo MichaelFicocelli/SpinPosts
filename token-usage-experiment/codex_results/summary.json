@@ -1,0 +1,33 @@
+{
+  "cli_version": "codex-cli 0.156.1",
+  "rtk_version": "0.50.0",
+  "reasoning_effort": "low",
+  "workers": 3,
+  "models": {
+    "gpt-5.6-terra": {
+      "completed": 38,
+      "failed": 0,
+      "total_tokens": {
+        "input": 1049303,
+        "output": 28205,
+        "reasoning": 6838
+      },
+      "sum_duration_ms": 701680
+    },
+    "gpt-5.6-luna": {
+      "completed": 38,
+      "failed": 0,
+      "total_tokens": {
+        "input": 860709,
+        "output": 29188,
+        "reasoning": 6007
+      },
+      "sum_duration_ms": 714777
+    }
+  },
+  "notes": [
+    "The runbook's scoring rubrics are marked '(missing)', so no formal task-success scores were computed.",
+    "The suggested gpt-5.4 model was rejected by the ChatGPT-backed Codex account; its 38 error logs are in codex_gpt-5.4.",
+    "Token counts are Codex turn usage, including the CLI harness and any tool activity."
+  ]
+}

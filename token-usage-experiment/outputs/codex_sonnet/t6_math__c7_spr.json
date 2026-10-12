@@ -1,12 +1,9 @@
 {
-  "response": "Base fees with 6% surcharge:\n- Civil: 420 \u00d7 85 = 35,700\n- Family: 175 \u00d7 120 = 21,000\n- Probate: 60 \u00d7 210 = 12,600\n- Total base = 69,300\n- Surcharge 6% = 4,158\n- Gross owed = 73,458\n\nE-filing credits ($5 each):\n- Civil: 70% \u00d7 420 = 294\n- Family: 40% \u00d7 175 = 70\n- Probate: 25% \u00d7 60 = 15\n- Total = 379 filings \u00d7 $5 = 1,895\n\nCollected = 73,458 \u2212 1,895 = 71,563\n\nCourthouse retains 82%: 71,563 \u00d7 0.82 = 58,681.66 \u2248 **$58,682**\n\nThe $9,400 passport-services revenue is excluded, since it is handled separately from filing fee collections.\n\n**Answer: $58,682**",
+  "response": "Civil:\n\n- Base fees: \\(420 \\times \\$85 = \\$35{,}700\\)\n- Surcharge: \\(6\\% \\times \\$35{,}700 = \\$2{,}142\\)\n- Electronic credits: \\(420 \\times 70\\% \\times \\$5 = \\$1{,}470\\)\n- Collected: \\(\\$35{,}700+\\$2{,}142-\\$1{,}470=\\$36{,}372\\)\n\nFamily law:\n\n\\[\n175(\\$120 \\times 1.06)-175(40\\%\\times \\$5)\n= \\$22{,}260-\\$350\n= \\$21{,}910\n\\]\n\nProbate:\n\n\\[\n60(\\$210 \\times 1.06)-60(25\\%\\times \\$5)\n= \\$13{,}356-\\$75\n= \\$13{,}281\n\\]\n\nTotal filing-fee collections:\n\n\\[\n\\$36{,}372+\\$21{,}910+\\$13{,}281=\\$71{,}563\n\\]\n\nThe courthouse retains 82%:\n\n\\[\n\\$71{,}563 \\times 0.82=\\$58{,}781.66\n\\]\n\nPassport-service revenue is separate and excluded.\n\n**Final answer: \\(\\boxed{\\$58{,}782}\\)**",
   "tokens": {
-    "input": 16366,
-    "output": 291,
-    "reasoning": 0
+    "input": 14828,
+    "output": 487,
+    "reasoning": 188
   },
-  "duration_ms": 3745,
-  "run_id": "t6_math__c7_spr",
-  "model": "sonnet",
-  "prompt_chars": 908
+  "duration_ms": 12325
 }

@@ -1,0 +1,12 @@
+{
+  "response": "**Summary**\n- **7.1:** Each side protects the other from lawsuits by outsiders caused by its breach of the contract, gross negligence or willful misconduct, or IP infringement in what it delivers. No protection if the other side modified the work, combined it with other materials, or used it outside the contract.\n- **7.2:** The protected party must promptly notify in writing, let the other side run the defense and settlement, and cooperate (at the other side's cost). No settlement admitting fault or imposing non-monetary duties without consent.\n- **7.3:** Neither side owes the other indirect losses (lost profits, lost data, etc.). Total liability is capped at the greater of 12 months' fees or $100,000. Exceptions to the limits: indemnification, confidentiality breaches, gross negligence/willful misconduct, IP infringement.\n\n**Key terms**\n- **Indemnify/hold harmless:** Cover the other party's costs and losses.\n- **Third-party claim:** A lawsuit or demand from someone outside the contract.\n- **Gross negligence:** Extreme carelessness.\n- **Willful misconduct:** Intentional wrongdoing.\n- **Deliverables:** What a party provides under the contract.\n- **Consequential/indirect damages:** Secondary losses, such as lost business.\n- **Punitive damages:** Punishment-based damages.\n- **Liability cap:** Maximum total amount owed.",
+  "tokens": {
+    "input": 17519,
+    "output": 471,
+    "reasoning": 0
+  },
+  "duration_ms": 5641,
+  "run_id": "t3_legal__c6_hardcap",
+  "model": "sonnet",
+  "prompt_chars": 3336
+}

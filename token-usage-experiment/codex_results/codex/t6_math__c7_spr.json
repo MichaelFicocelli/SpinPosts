@@ -1,0 +1,9 @@
+{
+  "response": "Civil: \\(420×85×1.06 - (420×0.70×5)=36,372\\)\n\nFamily law: \\(175×120×1.06 - (175×0.40×5)=21,910\\)\n\nProbate: \\(60×210×1.06 - (60×0.25×5)=13,281\\)\n\nTotal filing fees collected:\n\n\\[\n36,372+21,910+13,281=71,563\n\\]\n\nCourthouse retains 82%:\n\n\\[\n71,563×0.82=58,681.66\n\\]\n\nRounded to the nearest dollar, the courthouse retains **\\$58,682**.\n\nThe \\$9,400 passport-desk revenue is excluded because it is handled separately.",
+  "tokens": {
+    "input": 16356,
+    "output": 283,
+    "reasoning": 117
+  },
+  "duration_ms": 9545
+}

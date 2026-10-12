@@ -1,0 +1,9 @@
+{
+  "response": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Courthouse Filing Fee Retention</title>\n  <style>\n    body { font-family: Arial, sans-serif; max-width: 760px; margin: 40px auto; line-height: 1.5; color: #222; }\n    table { border-collapse: collapse; width: 100%; margin: 16px 0; }\n    th, td { border: 1px solid #ccc; padding: 8px; text-align: right; }\n    th:first-child, td:first-child { text-align: left; }\n    .answer { font-size: 1.3rem; font-weight: bold; color: #0a5c2c; }\n  </style>\n</head>\n<body>\n  <h1>Courthouse Filing Fee Retention</h1>\n\n  <p>The passport-services revenue is excluded because it is not part of filing-fee collections.</p>\n\n  <table>\n    <thead>\n      <tr>\n        <th>Case type</th>\n        <th>Base fees</th>\n        <th>6% surcharge</th>\n        <th>E-filing credits</th>\n        <th>Collected</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>Civil</td>\n        <td>$420 × $85 = $35,700</td>\n        <td>$2,142</td>\n        <td>70% × 420 × $5 = $1,470</td>\n        <td>$36,372</td>\n      </tr>\n      <tr>\n        <td>Family law</td>\n        <td>$175 × $120 = $21,000</td>\n        <td>$1,260</td>\n        <td>40% × 175 × $5 = $350</td>\n        <td>$21,910</td>\n      </tr>\n      <tr>\n        <td>Probate</td>\n        <td>$60 × $210 = $12,600</td>\n        <td>$756</td>\n        <td>25% × 60 × $5 = $75</td>\n        <td>$13,281</td>\n      </tr>\n    </tbody>\n  </table>\n\n  <p>Total filing fees collected:</p>\n  <p>$36,372 + $21,910 + $13,281 = $71,563</p>\n\n  <p>Courthouse retained amount:</p>\n  <p>$71,563 × 82% = $58,681.66</p>\n\n  <p class=\"answer\">Final answer: $58,682</p>\n</body>\n</html>",
+  "tokens": {
+    "input": 16432,
+    "output": 704,
+    "reasoning": 104
+  },
+  "duration_ms": 16131
+}

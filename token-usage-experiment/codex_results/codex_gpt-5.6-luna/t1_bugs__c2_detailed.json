@@ -1,0 +1,9 @@
+{
+  "response": "1. `group_transactions`\n\n   Wrong expression:\n\n   ```python\n   txs.sort(key=lambda t: t[\"timestamp\"], reverse=True)\n   ```\n\n   This sorts newest transactions first, contradicting the docstring’s “oldest first” requirement and reversing the intended running-balance chronology.\n\n   Fix:\n\n   ```python\n   txs.sort(key=lambda t: t[\"timestamp\"])\n   ```\n\n2. `average_daily_balance`\n\n   Wrong expression:\n\n   ```python\n   total += balances_by_day.get(day, 0)\n   ```\n\n   A day without a transaction should normally retain the most recent known balance, rather than resetting the balance to zero.\n\n   Fix:\n\n   ```python\n   balance = 0\n   total = 0\n   for day in range(start_day, end_day):\n       if day in balances_by_day:\n           balance = balances_by_day[day]\n       total += balance\n   ```\n\n3. `average_daily_balance`\n\n   Wrong expression:\n\n   ```python\n   return total / (end_day - start_day)\n   ```\n\n   If `start_day == end_day`, the documented empty window causes a division-by-zero error.\n\n   Fix:\n\n   ```python\n   window_days = end_day - start_day\n   if window_days <= 0:\n       return 0\n   return total / window_days\n   ```\n\n4. `top_accounts_by_activity`\n\n   Wrong expression:\n\n   ```python\n   return sorted(counts.items(), key=lambda kv: kv[1])[:top_n]\n   ```\n\n   This sorts accounts from least active to most active, so it does not return the top accounts.\n\n   Fix:\n\n   ```python\n   return sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:top_n]\n   ```",
+  "tokens": {
+    "input": 15252,
+    "output": 571,
+    "reasoning": 197
+  },
+  "duration_ms": 15245
+}

@@ -1,0 +1,12 @@
+{
+  "response": "```json\n{\n  \"name\": \"Alex Chen\",\n  \"years_experience\": 9,\n  \"skills\": [\"Go\", \"Python\", \"TypeScript\", \"Node.js\", \"Kafka\", \"Flink\", \"Postgres\", \"Redis\", \"Kubernetes\", \"Terraform\", \"AWS (EKS, RDS, Lambda)\", \"gRPC\", \"REST\", \"distributed tracing\", \"on-call\"],\n  \"most_recent_role\": {\n    \"title\": \"Staff Software Engineer\",\n    \"company\": \"Northwind Health\",\n    \"dates\": \"Mar 2023 to present\"\n  }\n}\n```",
+  "tokens": {
+    "input": 16621,
+    "output": 201,
+    "reasoning": 0
+  },
+  "duration_ms": 2649,
+  "run_id": "t5_extract__c1_baseline",
+  "model": "opus",
+  "prompt_chars": 1638
+}

@@ -1,0 +1,9 @@
+{
+  "response": "## Key points\n\n- Reconciliation engine will be rebuilt in-house and is the Q3 anchor; vendor options were rejected as poor fits.\n- Mobile receipt-capture v1 will ship without bulk-select; bulk-select is a fast-follow roadmap item.\n- Vendor payout SLA target is 48-hour p95 from invoice approval, contingent on an ACH batching trade-off analysis and SRE approval of monitoring load.\n- Audit-log retention update is confirmed to move to Q4 with Legal.\n- Internal admin-tool refresh remains with the intern team, unchanged.\n- Engineering will develop a rotating on-call proposal to address bug-bash burnout.\n\n## Action items\n\n- Marcus: confirm Karim’s two-week availability for reconciliation ledger integration with his manager, this week.\n- Dan: update mobile receipt-capture specs to reflect v1 excluding bulk-select, by Wednesday, September 2.\n- Marcus and Jenna: complete the ACH batching/monitoring trade-off analysis for the vendor payout SLA plan, by next week.\n- SRE: assess whether the increased ACH monitoring load is manageable, following the trade-off analysis.\n- Marcus: propose a rotating engineering on-call structure, by August 31.\n- Sara: take the Q3 scope to executive review, Monday, August 31.\n- Priya: circulate the scope draft for review, Thursday morning, September 3.\n- Priya/Sara: lock Q3 scope, by Friday, September 4.",
+  "tokens": {
+    "input": 17062,
+    "output": 396,
+    "reasoning": 101
+  },
+  "duration_ms": 11379
+}

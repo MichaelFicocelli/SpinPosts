@@ -1,0 +1,9 @@
+{
+  "response": "1. `group_transactions`\n\n- Wrong expression: `txs.sort(key=lambda t: t[\"timestamp\"], reverse=True)`\n- Why: The docstring says transactions must be oldest first, but `reverse=True` sorts them newest first and therefore produces incorrect running balances.\n- Fix:\n\n```python\ntxs.sort(key=lambda t: t[\"timestamp\"])\n```\n\n2. `average_daily_balance`\n\n- Wrong expression: `total += balances_by_day.get(day, 0)`\n- Why: On days without a transaction, the account balance should carry forward from the preceding day rather than reset to zero.\n- Fix:\n\n```python\ntotal = 0\ncurrent_balance = 0\nfor day in range(start_day, end_day):\n    if day in balances_by_day:\n        current_balance = balances_by_day[day]\n    total += current_balance\n```\n\n3. `average_daily_balance`\n\n- Wrong expression: `return total / (end_day - start_day)`\n- Why: An empty or reversed window (`end_day <= start_day`) can cause division by zero or produce a nonsensical result.\n- Fix:\n\n```python\nif end_day <= start_day:\n    return 0\n```\n\nPlace this before the division (ideally near the initial `if not history` check).\n\n4. `top_accounts_by_activity`\n\n- Wrong expression: `sorted(counts.items(), key=lambda kv: kv[1])[:top_n]`\n- Why: It sorts transaction counts ascending, returning the least active accounts instead of the most active ones.\n- Fix:\n\n```python\nreturn sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:top_n]\n```",
+  "tokens": {
+    "input": 16675,
+    "output": 745,
+    "reasoning": 397
+  },
+  "duration_ms": 24782
+}

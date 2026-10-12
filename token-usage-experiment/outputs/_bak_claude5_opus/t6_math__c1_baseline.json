@@ -1,0 +1,12 @@
+{
+  "response": "**$58,682**\n\nWork:\n\n**1. Base fees**\n- Civil: 420 \u00d7 $85 = $35,700\n- Family: 175 \u00d7 $120 = $21,000\n- Probate: 60 \u00d7 $210 = $12,600\n- Total base: **$69,300**\n\n**2. 6% surcharge**\n- $69,300 \u00d7 1.06 = **$73,458**\n\n**3. E-filing credits** ($5 each)\n- Civil: 70% \u00d7 420 = 294\n- Family: 40% \u00d7 175 = 70\n- Probate: 25% \u00d7 60 = 15\n- Total: 379 filings \u00d7 $5 = **$1,895**\n\n**4. Collected**\n- $73,458 \u2212 $1,895 = **$71,563**\n\n**5. Courthouse retains 82%**\n- $71,563 \u00d7 0.82 = $58,681.66 \u2192 **$58,682**\n\nThe $9,400 passport revenue is excluded per the problem statement.",
+  "tokens": {
+    "input": 16320,
+    "output": 479,
+    "reasoning": 182
+  },
+  "duration_ms": 6617,
+  "run_id": "t6_math__c1_baseline",
+  "model": "opus",
+  "prompt_chars": 1030
+}

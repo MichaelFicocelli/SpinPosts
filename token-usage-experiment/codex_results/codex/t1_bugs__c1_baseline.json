@@ -1,0 +1,9 @@
+{
+  "response": "- `group_transactions` sorts newest first, despite documenting “oldest first.” This produces incorrect running balances.\n\n  Fix:\n\n  ```python\n  txs.sort(key=lambda t: t[\"timestamp\"])\n  ```\n\n- `average_daily_balance` treats days without transactions as balance `0`. Balances should normally carry forward from the latest prior transaction. It also needs a defined convention for days with multiple transactions—typically use the end-of-day balance (which works once history is oldest-first).\n\n  Fix:\n\n  ```python\n  def average_daily_balance(history, start_day, end_day):\n      if end_day <= start_day:\n          raise ValueError(\"end_day must be after start_day\")\n\n      balances_by_day = {}\n      for entry in history:\n          day = entry[\"tx\"][\"timestamp\"] // 86400\n          balances_by_day[day] = entry[\"balance_after\"]  # end-of-day balance\n\n      balance = 0\n      total = 0\n      for day in range(start_day, end_day):\n          if day in balances_by_day:\n              balance = balances_by_day[day]\n          total += balance\n      return total / (end_day - start_day)\n  ```\n\n  Note: if transactions before `start_day` exist, this version should initialize `balance` from the most recent one before the window; alternatively, retain all history as shown and first process earlier days before calculating the window.\n\n- `top_accounts_by_activity` sorts ascending by count, so it returns the least-active accounts.\n\n  Fix:\n\n  ```python\n  return sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:top_n]\n  ```\n\n  For deterministic ties, add account ID as a secondary key:\n\n  ```python\n  return sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:top_n]\n  ```",
+  "tokens": {
+    "input": 16607,
+    "output": 471,
+    "reasoning": 80
+  },
+  "duration_ms": 13518
+}

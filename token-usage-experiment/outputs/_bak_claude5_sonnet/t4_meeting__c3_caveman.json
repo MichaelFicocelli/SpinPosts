@@ -1,0 +1,12 @@
+{
+  "response": "**Key decisions**\n- Q3 scope lock Friday. Sara take to exec review Monday.\n- Reconciliation = Q3 anchor. Build, not buy.\n  - Old engine choke on multi-currency. 3 incidents, tickets up 40%.\n  - Rewrite ~6 eng-weeks, incl. FX rounding migration. Need Karim (platform) 2 weeks.\n  - Vendors bad: Recur $180K/yr, LedgerFlow $140K (no tax codes). Both still ~3 eng-weeks integration.\n- Mobile receipt-capture: ship v1 without bulk-select (adds ~1 sprint). Bulk-select on roadmap as fast-follow. OCR confidence indicator needs more prominence. Design tested with 6 users.\n- Vendor payout SLA (48h vs p95 71h now):\n  - Eng: cut ACH batch window 12h \u2192 4h (~\u00bd sprint + SRE sign-off).\n  - Ops: add 2nd west-coast approver.\n  - Not final. Trade-off analysis first. If SRE ok on monitoring load, do it. Else intermediate targets.\n- Audit-log retention pushed to Q4 (Legal confirmed). Admin-tool refresh stay with intern crew.\n- Eng burnout flagged by HR \u2192 need rotating on-call proposal.\n\n**Action items**\n- Marcus: confirm Karim availability with his manager (this week); ACH trade-off analysis (back next week); on-call rotation proposal by 31st.\n- Jenna: pair with Marcus on ACH analysis.\n- Dan: update mobile specs by Wednesday.\n- Priya: circulate scope draft Thursday morning; add bulk-select fast-follow to roadmap.\n- Sara: exec review Monday.",
+  "tokens": {
+    "input": 17548,
+    "output": 608,
+    "reasoning": 0
+  },
+  "duration_ms": 6462,
+  "run_id": "t4_meeting__c3_caveman",
+  "model": "sonnet",
+  "prompt_chars": 3941
+}

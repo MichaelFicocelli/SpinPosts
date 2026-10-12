@@ -1,0 +1,12 @@
+{
+  "response": "**Decisions**\n- Reconciliation = Q3 anchor; build over buy (Recur $180K, LedgerFlow $140K but no jurisdiction tax codes; both still ~3 eng-weeks integration). Rewrite ~6 eng-weeks + Karim 2 weeks.\n- Mobile receipt-capture v1 ships without bulk-select (fast-follow on roadmap); prominent OCR confidence indicator from user testing.\n- Payout SLA: target 48h p95 (current 71h) via ACH batch window 12h\u21924h + second west-coast approver; contingent on SRE sign-off, else intermediate targets.\n- Audit-log retention pushed to Q4 (Legal confirmed); admin-tool refresh unchanged (interns).\n\n**Action items**\n- Marcus: confirm Karim's availability this week; ACH trade-off analysis (w/ Jenna) next week; on-call rotation proposal by 8/31.\n- Dan: updated mobile specs by Wednesday.\n- Priya: circulate scope draft Thursday AM; scope locked Friday.\n- Sara: exec review Monday.",
+  "tokens": {
+    "input": 17475,
+    "output": 382,
+    "reasoning": 0
+  },
+  "duration_ms": 4963,
+  "run_id": "t4_meeting__c6_hardcap",
+  "model": "opus",
+  "prompt_chars": 3937
+}

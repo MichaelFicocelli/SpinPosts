@@ -1,0 +1,9 @@
+{
+  "response": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Resume Extraction</title>\n</head>\n<body>\n  <h1>Resume Extraction</h1>\n  <pre>{\n  \"name\": \"Alex Chen\",\n  \"years_experience\": 9,\n  \"skills\": [\"Go\", \"Python\", \"TypeScript\", \"Node.js\", \"Kafka\", \"Flink\", \"Postgres\", \"Redis\", \"Kubernetes\", \"Terraform\", \"AWS\", \"gRPC\", \"REST\", \"distributed tracing\", \"on-call\"],\n  \"most_recent_role\": {\n    \"title\": \"Staff Software Engineer\",\n    \"company\": \"Northwind Health\",\n    \"dates\": \"Mar 2023 to present\"\n  }\n}</pre>\n</body>\n</html>",
+  "tokens": {
+    "input": 16578,
+    "output": 209,
+    "reasoning": 32
+  },
+  "duration_ms": 6653
+}

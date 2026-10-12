@@ -1,0 +1,9 @@
+{
+  "response": "- Each party covers the other for third-party claims caused by its contract breach, gross negligence, intentional wrongdoing, or IP infringement—except problems caused by unauthorized changes, combinations, or use.\n- The affected party must promptly notify, let the responsible party control the defense, and reasonably cooperate.\n- Generally excluded: indirect or special damages, lost profits/revenue, goodwill, or data.\n- Liability cap: greater of prior 12 months’ fees or $100,000.\n- Exceptions to exclusions/cap: indemnity, confidentiality breaches, gross negligence/willful misconduct, and IP infringement.\n\nKey terms:\n- Indemnify: pay for covered losses.\n- Hold harmless: protect from financial responsibility.\n- Third-party claim: claim by someone outside the contract.\n- Gross negligence: extreme carelessness.\n- Willful misconduct: intentional wrongdoing.\n- Intellectual property: copyrights, patents, trademarks, etc.\n- Liability cap: maximum financial responsibility.",
+  "tokens": {
+    "input": 15437,
+    "output": 214,
+    "reasoning": 19
+  },
+  "duration_ms": 6774
+}

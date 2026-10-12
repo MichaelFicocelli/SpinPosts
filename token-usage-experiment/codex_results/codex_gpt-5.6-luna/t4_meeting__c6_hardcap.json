@@ -1,0 +1,9 @@
+{
+  "response": "- Reconciliation revamp is Q3 anchor; build in-house. Marcus to confirm Karim’s 2-week availability.\n- Mobile receipt capture ships v1 without bulk-select; fast-follow later. Dan updates specs by Wednesday; emphasize OCR confidence.\n- Vendor payout SLA: target 48h p95 by mid-Q3. Marcus/Jenna assess 4-hour ACH batching and second approver; include SRE impact. Review next week.\n- Audit-log retention moved to Q4; admin-tool refresh unchanged.\n- Marcus proposes rotating engineering on-call by Aug 31.\n- Priya circulates scope draft Thursday; scope locked Friday. Sara presents at Monday exec review.",
+  "tokens": {
+    "input": 15495,
+    "output": 153,
+    "reasoning": 13
+  },
+  "duration_ms": 5766
+}

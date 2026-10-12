@@ -1,0 +1,9 @@
+{
+  "response": "- Q3 scope lock: Friday.\n- Sara take scope exec review Monday.\n\n- Reconciliation revamp = Q3 anchor.\n  - Build in-house. Vendor no good.\n  - Rewrite: ~6 eng-weeks.\n  - Need Karim, Platform, 2 weeks.\n  - Reason: multi-currency failures; incidents up 3, tickets up 40%.\n  - Marcus confirm Karim with manager this week.\n\n- Mobile receipt capture:\n  - Ship v1 without bulk-select.\n  - Bulk-select moves fast-follow roadmap.\n  - Make OCR confidence indicator more prominent.\n  - Dan update specs by Wednesday.\n\n- Vendor payout SLA:\n  - Goal: 48h p95 from invoice approval.\n  - Current: 71h p95.\n  - Possible fix: ACH batch window 12h → 4h; add second west-coast approver.\n  - Marcus + Jenna do trade-off analysis next week.\n  - Need SRE sign-off.\n  - If monitoring load okay, proceed. Else set middle target.\n\n- Audit-log retention update moves Q4; Legal confirmed.\n- Admin-tool refresh stays with intern crew.\n\n- Engineering burnout:\n  - Marcus propose rotating on-call plan by Aug 31.\n\n- Priya circulate scope draft Thursday morning, before Friday lock.",
+  "tokens": {
+    "input": 15524,
+    "output": 291,
+    "reasoning": 22
+  },
+  "duration_ms": 8770
+}

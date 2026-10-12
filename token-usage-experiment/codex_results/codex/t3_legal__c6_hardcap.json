@@ -1,0 +1,9 @@
+{
+  "response": "- Each side pays for third-party claims caused by its breach, serious/willful wrongdoing, or IP infringement by its deliverables (with listed exceptions).\n- The protected side must notify, cooperate, and let the other control defense; settlement needs consent if it admits fault or imposes non-money duties.\n- Usually neither side owes indirect losses (e.g., lost profits/data).\n- Exceptions: indemnity, confidentiality breach, gross negligence/willful misconduct, and IP infringement.\n- Liability cap: higher of prior 12 months’ fees or $100,000.",
+  "tokens": {
+    "input": 16965,
+    "output": 118,
+    "reasoning": 0
+  },
+  "duration_ms": 6737
+}

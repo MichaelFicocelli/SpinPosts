@@ -1,0 +1,9 @@
+{
+  "response": "- Civil: \\(420(85×1.06−5)=\\$35,742\\)\n- Family: \\(175(120×1.06−5)=\\$21,385\\)\n- Probate: \\(60(210×1.06−5)=\\$13,056\\)\n- Total collected: \\(\\$70,183\\)\n- Retained: \\(70,183×0.82=\\$57,550.06\\)\n\n**Final answer: \\(\\boxed{\\$57,550}\\)**",
+  "tokens": {
+    "input": 14925,
+    "output": 230,
+    "reasoning": 117
+  },
+  "duration_ms": 7442
+}

@@ -1,0 +1,36 @@
+{
+  "model": "gpt-5.4",
+  "run_id": "t6_math__c1_baseline",
+  "exit_code": 1,
+  "duration_ms": 10720,
+  "errors": [
+    {
+      "type": "error",
+      "message": "Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4037ca42cc2cbf7-DTW)"
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4037ca96a9ae0bb-DTW)"
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4037cb1fd891d91-DTW)"
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4037cbdc8027308-DTW)"
+    },
+    {
+      "type": "error",
+      "message": "{\"detail\":\"The 'gpt-5.4' model is not supported when using Codex with a ChatGPT account.\"}"
+    },
+    {
+      "type": "turn.failed",
+      "error": {
+        "message": "{\"detail\":\"The 'gpt-5.4' model is not supported when using Codex with a ChatGPT account.\"}"
+      }
+    }
+  ],
+  "stdout_tail": "{\"type\":\"thread.started\",\"thread_id\":\"01a0d473-1c47-7c50-bb88-618d5244dfc8\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"error\",\"message\":\"Model metadata for `gpt-5.4` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.\"}}\n{\"type\":\"turn.started\"}\n{\"type\":\"error\",\"message\":\"Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4037ca42cc2cbf7-DTW)\"}\n{\"type\":\"error\",\"message\":\"Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4037ca96a9ae0bb-DTW)\"}\n{\"type\":\"error\",\"message\":\"Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4037cb1fd891d91-DTW)\"}\n{\"type\":\"error\",\"message\":\"Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4037cbdc8027308-DTW)\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_1\",\"type\":\"error\",\"message\":\"Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4037cd54a917308-DTW\"}}\n{\"type\":\"error\",\"message\":\"{\\\"detail\\\":\\\"The 'gpt-5.4' model is not supported when using Codex with a ChatGPT account.\\\"}\"}\n{\"type\":\"turn.failed\",\"error\":{\"message\":\"{\\\"detail\\\":\\\"The 'gpt-5.4' model is not supported when using Codex with a ChatGPT account.\\\"}\"}}\n",
+  "stderr_tail": "2026-09-24T17:25:09.509790Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses\n2026-09-24T17:25:10.102046Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses\n2026-09-24T17:25:10.688614Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses\n2026-09-24T17:25:11.512885Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses\n2026-09-24T17:25:12.924593Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses\n2026-09-24T17:25:14.811171Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses\n2026-09-24T17:25:18.613200Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses\n"
+}

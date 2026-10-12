@@ -1,0 +1,9 @@
+{
+  "response": "Bugs:\n\n- `group_transactions` sort wrong way. Doc say old first; code use `reverse=True`.\n\n```python\ntxs.sort(key=lambda t: t[\"timestamp\"])\n```\n\n- `average_daily_balance` lose carry-over. Day with no tx must use last known bal, not `0`. Also many tx same day: code works only if history old-first; last tx for day then final bal.\n\nFix: walk days, carry last balance.\n\n```python\ndef average_daily_balance(history, start_day, end_day):\n    if end_day <= start_day:\n        return 0  # or raise ValueError\n\n    by_day = {}\n    for entry in history:\n        day = entry[\"tx\"][\"timestamp\"] // 86400\n        by_day[day] = entry[\"balance_after\"]\n\n    balance = 0\n    total = 0\n    for day in range(start_day, end_day):\n        if day in by_day:\n            balance = by_day[day]\n        total += balance\n    return total / (end_day - start_day)\n```\n\nBut fix above still miss balance from tx before `start_day`. Better seed it:\n\n```python\nfor day, value in by_day.items():\n    if day < start_day:\n        balance = value\n```\n\nNeed process in day order, or find last day before window.\n\n- `top_accounts_by_activity` sorts low count first. Need high count first.\n\n```python\nreturn sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:top_n]\n```\n\n- Bad `kind` treated as debit. May hide bad data. Validate:\n\n```python\nelif tx[\"kind\"] == \"debit\":\n    balance -= tx[\"amount\"]\nelse:\n    raise ValueError(f\"bad kind: {tx['kind']}\")\n```",
+  "tokens": {
+    "input": 16674,
+    "output": 430,
+    "reasoning": 50
+  },
+  "duration_ms": 13888
+}

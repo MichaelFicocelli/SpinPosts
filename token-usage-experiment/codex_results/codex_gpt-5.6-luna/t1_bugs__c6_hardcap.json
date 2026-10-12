@@ -1,0 +1,9 @@
+{
+  "response": "- `group_transactions`: sorts newest-first, contradicting “oldest first”; running balances are wrong.  \n  Fix: `txs = sorted(txs, key=lambda t: t[\"timestamp\"])` (also avoids mutating input).\n\n- `average_daily_balance`: missing days incorrectly become zero; balances should carry forward from the latest prior transaction. Same-day entries need chronological ordering and the day’s closing balance.  \n  Fix: sort history oldest-first, compute each day’s closing balance, forward-fill absent days.\n\n- `average_daily_balance`: empty window causes division by zero.  \n  Fix: return `0` when `end_day <= start_day`.\n\n- `top_accounts_by_activity`: returns least-active accounts.  \n  Fix: `key=lambda kv: kv[1], reverse=True`; optionally add `kv[0]` as a deterministic tie-breaker.",
+  "tokens": {
+    "input": 15110,
+    "output": 301,
+    "reasoning": 118
+  },
+  "duration_ms": 12922
+}

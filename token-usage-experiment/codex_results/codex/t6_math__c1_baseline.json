@@ -1,0 +1,9 @@
+{
+  "response": "Base fees:\n\n- Civil: \\(420 \\times 85 = \\$35{,}700\\)\n- Family law: \\(175 \\times 120 = \\$21{,}000\\)\n- Probate: \\(60 \\times 210 = \\$12{,}600\\)\n\n\\[\n\\text{Base total} = 35{,}700+21{,}000+12{,}600=\\$69{,}300\n\\]\n\nState surcharge:\n\n\\[\n0.06 \\times 69{,}300 = \\$4{,}158\n\\]\n\nElectronic-filing credits:\n\n\\[\n(70\\%\\times420)\\times5=294\\times5=\\$1{,}470\n\\]\n\n\\[\n(40\\%\\times175)\\times5=70\\times5=\\$350\n\\]\n\n\\[\n(25\\%\\times60)\\times5=15\\times5=\\$75\n\\]\n\n\\[\n\\text{Credits total}=\\$1{,}895\n\\]\n\nCollected filing fees:\n\n\\[\n69{,}300+4{,}158-1{,}895=\\$71{,}563\n\\]\n\nThe courthouse retains 82%:\n\n\\[\n0.82 \\times 71{,}563 = \\$58{,}681.66\n\\]\n\nRounded to the nearest dollar, the courthouse retained:\n\n\\[\n\\boxed{\\$58{,}682}\n\\]",
+  "tokens": {
+    "input": 16401,
+    "output": 395,
+    "reasoning": 86
+  },
+  "duration_ms": 11220
+}

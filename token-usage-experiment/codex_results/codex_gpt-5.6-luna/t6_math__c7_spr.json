@@ -1,0 +1,9 @@
+{
+  "response": "Civil:\n\n- Base fees: \\(420 \\times \\$85 = \\$35{,}700\\)\n- Surcharge: \\(6\\% \\times \\$35{,}700 = \\$2{,}142\\)\n- Electronic credits: \\(420 \\times 70\\% \\times \\$5 = \\$1{,}470\\)\n- Collected: \\(\\$35{,}700+\\$2{,}142-\\$1{,}470=\\$36{,}372\\)\n\nFamily law:\n\n\\[\n175(\\$120 \\times 1.06)-175(40\\%\\times \\$5)\n= \\$22{,}260-\\$350\n= \\$21{,}910\n\\]\n\nProbate:\n\n\\[\n60(\\$210 \\times 1.06)-60(25\\%\\times \\$5)\n= \\$13{,}356-\\$75\n= \\$13{,}281\n\\]\n\nTotal filing-fee collections:\n\n\\[\n\\$36{,}372+\\$21{,}910+\\$13{,}281=\\$71{,}563\n\\]\n\nThe courthouse retains 82%:\n\n\\[\n\\$71{,}563 \\times 0.82=\\$58{,}781.66\n\\]\n\nPassport-service revenue is separate and excluded.\n\n**Final answer: \\(\\boxed{\\$58{,}782}\\)**",
+  "tokens": {
+    "input": 14828,
+    "output": 487,
+    "reasoning": 188
+  },
+  "duration_ms": 12325
+}

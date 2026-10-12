@@ -1,0 +1,9 @@
+{
+  "response": "Bugs and fixes:\n\n- `group_transactions` sorts newest-first, contradicting “oldest first,” so running balances are computed backwards.\n\n```python\ntxs.sort(key=lambda t: t[\"timestamp\"])\n```\n\n- `average_daily_balance` treats days with no transaction as balance `0`; it should carry forward the most recent balance. It also needs chronological history (fixed above) and should use the closing balance for each day.\n\n```python\ndef average_daily_balance(history, start_day, end_day):\n    if end_day <= start_day:\n        raise ValueError(\"end_day must be after start_day\")\n\n    balances_by_day = {}\n    balance = 0\n    for entry in history:  # chronological\n        day = entry[\"tx\"][\"timestamp\"] // 86400\n        balance = entry[\"balance_after\"]\n        balances_by_day[day] = balance\n\n    total = 0\n    balance = 0\n    for day in range(start_day, end_day):\n        if day in balances_by_day:\n            balance = balances_by_day[day]\n        total += balance\n    return total / (end_day - start_day)\n```\n\nNote: this computes a daily closing-balance average. If “average” must be exact time-weighted balance, calculate durations between transactions/window boundaries instead.\n\n- `top_accounts_by_activity` returns the least active accounts because it sorts ascending.\n\n```python\nreturn sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:top_n]\n```\n\nOptionally make ties deterministic:\n\n```python\nreturn sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:top_n]\n```",
+  "tokens": {
+    "input": 16604,
+    "output": 397,
+    "reasoning": 48
+  },
+  "duration_ms": 12728
+}

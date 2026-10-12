@@ -1,0 +1,12 @@
+{
+  "response": "**Three bugs, one per function.**\n\n### 1. `group_transactions` \u2014 sort direction is backwards\n```python\ntxs.sort(key=lambda t: t[\"timestamp\"], reverse=True)   # newest first\n```\nDocstring says oldest first, and the running balance only makes sense oldest\u2192newest. As written, `balance_after` is a *reverse* accumulation and the final entry's balance is just the oldest transaction alone.\n\n**Fix:** drop `reverse=True`.\n```python\ntxs.sort(key=lambda t: t[\"timestamp\"])\n```\n\n### 2. `average_daily_balance` \u2014 no carry-forward on days with no activity\n`balances_by_day` only has entries for days that had a transaction. Days without one use `.get(day, 0)`, so an account sitting at $5,000 with no activity counts as $0 for those days. Days before the first in-window transaction also need the balance carried in from *before* `start_day`.\n\n**Fix:** carry the last known balance forward, seeded from the newest entry at or before `start_day`.\n```python\nbalances_by_day = {}\nopening = 0\nfor entry in history:                      # history is now oldest-first\n    day = entry[\"tx\"][\"timestamp\"] // day_seconds\n    if day < start_day:\n        opening = entry[\"balance_after\"]\n    else:\n        balances_by_day[day] = entry[\"balance_after\"]\n\ntotal = 0\nbalance = opening\nfor day in range(start_day, end_day):\n    balance = balances_by_day.get(day, balance)\n    total += balance\nreturn total / (end_day - start_day)\n```\n(This also depends on fix #1 \u2014 with the reversed sort, `balances_by_day[day]` would keep the *oldest* transaction of a multi-transaction day instead of the closing one.)\n\n### 3. `top_accounts_by_activity` \u2014 sorts ascending\n```python\nsorted(counts.items(), key=lambda kv: kv[1])[:top_n]\n```\nReturns the *least* active accounts.\n\n**Fix:**\n```python\nsorted(counts.items(), key=lambda kv: -kv[1])[:top_n]\n# or: sorted(..., key=lambda kv: kv[1], reverse=True)\n```\nUse `key=lambda kv: (-kv[1], kv[0])` if you want deterministic tie-breaking.\n\n**Minor:** `average_daily_balance` returns `0` (int) for empty history but a float otherwise, and divides by zero if `start_day == end_day`. Guard with `if end_day <= start_day: return 0.0`.",
+  "tokens": {
+    "input": 16678,
+    "output": 1047,
+    "reasoning": 213
+  },
+  "duration_ms": 12386,
+  "run_id": "t1_bugs__c7_spr",
+  "model": "opus",
+  "prompt_chars": 1949
+}

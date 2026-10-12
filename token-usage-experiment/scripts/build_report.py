@@ -59,8 +59,8 @@ MODEL_LABELS = {
     "sonnet": "Sonnet 4.5",
     "fable": "Fable 5.1",
     "copilot": "Copilot (GPT-5.4)",
-    "codex_opus": "Opus 5 (CLI rerun)",
-    "codex_sonnet": "Sonnet 5 (CLI rerun)",
+    "codex_opus": "Codex GPT-5.6 Terra",
+    "codex_sonnet": "Codex GPT-5.6 Luna",
 }
 
 VERDICT_COLORS = {"success": "#4ade80", "partial": "#fbbf24", "fail": "#f87171", "missing": "#6b7280"}
@@ -141,7 +141,7 @@ def summarize_by_condition(model_filter=None):
     """Return {condition_id: {'avg_prompt': int, 'avg_response': int, 'avg_total': int, 'success': int, 'partial': int, 'fail': int, 'runs': int}}"""
     out = {}
     for cond_id in CONDITIONS_ORDER:
-        rows = [r for r in RESULTS if r["condition_id"] == cond_id and (model_filter is None or r["model"] == model_filter)]
+        rows = [r for r in RESULTS if r["condition_id"] == cond_id and r.get("status") == "ok" and (model_filter is None or r["model"] == model_filter)]
         if not rows:
             continue
         out[cond_id] = {
@@ -309,7 +309,7 @@ def render_condition_summary():
         parts.append(f'<tr><th class="cond-cell" title="{tt}">{esc(COND_LABELS[cond_id])}</th>')
         for i, m in enumerate(MODELS_ORDER):
             sep = ' model-sep' if i > 0 else ''
-            rows = [r for r in RESULTS if r["condition_id"] == cond_id and r["model"] == m]
+            rows = [r for r in RESULTS if r["condition_id"] == cond_id and r["model"] == m and r.get("status") == "ok"]
             if not rows:
                 parts.append(f'<td class="na{sep}">n/a</td><td class="na">n/a</td><td class="na">n/a</td>')
                 continue
@@ -632,13 +632,13 @@ def render_page():
     method_html = f"""
     <section class="method">
         <h2>Methodology</h2>
-        <p>6 text tasks by 8 prompt conditions by 6 models: Opus 4.7, Sonnet 4.5, Fable 5.1, GitHub Copilot CLI on gpt-5.4, plus two second-run columns done through a different harness (see below): Opus 5 and Sonnet 5 via the standalone <code>claude</code> CLI. The rtk condition only applies to the two tasks where the model would invoke CLI tools, so it is marked n/a on the other four. The CLI-rerun columns skipped rtk entirely by design (Codex CLI wasn't available on that machine, so the intended provider swap couldn't happen). The combo condition (caveman + hardcap + SPR stacked) was added last and did not run on Copilot in this session because that CLI's OAuth token was unusable in the sandbox &mdash; those 6 cells are marked n/a. Net: {good_runs} usable runs.</p>
+        <p>6 text tasks by 8 prompt conditions by 6 models: Opus 4.7, Sonnet 4.5, Fable 5.1, GitHub Copilot CLI on gpt-5.4, plus two Codex CLI columns contributed by a second developer: gpt-5.6-terra and gpt-5.6-luna. The rtk condition only applies to the two tasks where the model would invoke CLI tools, so it is marked n/a on the other four. The combo condition (caveman + hardcap + SPR stacked) was added after the Codex sweep ran, so its 12 Codex cells are marked n/a; it also did not run on Copilot in this session because that CLI's OAuth token was unusable in the sandbox &mdash; those 6 cells are marked n/a too. Net: {good_runs} usable runs.</p>
         <h3>Execution</h3>
         <ul>
             <li>Each Claude run in the original four columns (Opus 4.7, Sonnet 4.5, Fable 5.1) ran in an isolated Claude Code sub-agent with a <code>model</code> override. The sub-agent read one prompt file, produced its answer, wrote the answer to a JSON file, and returned <code>DONE</code>.</li>
             <li>Each Copilot run invoked the GitHub Copilot CLI (v1.0.82) with <code>copilot --yolo -p &lt;prompt&gt; --model gpt-5.4</code>. Copilot's trailing session-summary footer (Changes, Requests, Tokens, Resume lines) was stripped before saving the response.</li>
-            <li>The two CLI-rerun columns were intended to be a Codex CLI comparison contributed by a second developer. Codex CLI was not available on that machine, so they ran <code>claude -p --output-format json --model claude-opus-5</code> and <code>--model claude-sonnet-5</code> instead, with tools disabled and a minimal system prompt so each run is a single-shot generation. This means the two columns compare newer Claude models to the older ones already in the report — not a cross-provider comparison.</li>
-            <li>Sub-agents, Copilot, and the <code>claude</code> CLI runs all start in fresh contexts, so runs do not carry state between them. Each harness adds roughly constant system-prompt overhead per call that is not attributed to the task.</li>
+            <li>The two Codex columns were run with Codex CLI 0.156.1 at low reasoning effort, three concurrent workers, each call in its own temporary working directory. The runbook's suggested <code>gpt-5.4</code> was rejected by that ChatGPT-backed Codex account, so the reported columns are <code>gpt-5.6-terra</code> and <code>gpt-5.6-luna</code>. Both models completed all 38 applicable runs.</li>
+            <li>Sub-agents, Copilot, and Codex all start each run in a fresh context, so runs do not carry state between them. Each harness adds roughly constant system-prompt overhead per call that is not attributed to the task.</li>
         </ul>
         <h3>Token measurement</h3>
         <ul>
@@ -676,22 +676,21 @@ def render_page():
     body = f"""
     <main>
         <h1>Token-usage vs task-success experiment</h1>
-        <p class="subtitle">Comparing 5 Claude models + Copilot × up to 8 prompt conditions × 6 tasks ({total_runs} runs; {good_runs} usable).</p>
+        <p class="subtitle">Comparing 3 Claude models + Copilot + 2 Codex models × up to 8 prompt conditions × 6 tasks ({total_runs} runs; {good_runs} usable).</p>
 
         <section class="abstract">
-            <h2>Abstract</h2>
-            <p>Can changing how you write a prompt lower your token bill without hurting the answer? We tried a handful of prompt tweaks across everyday tasks on several Claude models and one GPT model, graded every answer against a fixed checklist, and compared the token cost with and without each tweak.</p>
+            <p>Can changing how you write a prompt lower your token bill without hurting the answer? We tried a handful of prompt tweaks across everyday tasks on several Claude models, one GPT model via Copilot, and two GPT models via Codex, graded every answer against a fixed checklist, and compared the token cost with and without each tweak.</p>
         </section>
 
         <section class="results-summary">
             <h2>Results: how to spend fewer tokens</h2>
             <ul>
-                <li><strong>Cap the output.</strong> Add "no preamble, no closing, 150-token max" to the prompt. Total tokens drop about 45%. Older Opus sometimes loses accuracy on harder tasks; the newer Claude 5 models don't.</li>
+                <li><strong>Cap the output.</strong> Add "no preamble, no closing, 150-token max" to the prompt. Total tokens drop about 45% and accuracy usually holds. Older Opus sometimes loses accuracy on the harder tasks; Codex Luna dropped a math answer under the cap too.</li>
                 <li><strong>Drop filler in the prompt.</strong> Tell the model to write in caveman-speak (no "the", "of", "is"). Response tokens drop ~50% and accuracy stays put.</li>
                 <li><strong>Compress the input.</strong> Strip stopwords before sending long prompts. Small savings, no accuracy hit.</li>
                 <li><strong>Don't ask for HTML.</strong> It's the one tweak that raises cost. Response tokens rise 2-3x for the same answer.</li>
                 <li><strong>Stack everything only if you can afford some accuracy loss.</strong> Cap + caveman-speak + stripped input cuts total cost 44%, but the score drops ~18 points. Worth it for short-answer tasks (math, JSON extraction, meeting bullets); not worth it when the answer has to hit every item on a long checklist (legal summaries).</li>
-                <li><strong>Upgrade the model.</strong> Sonnet 5 answers the same tasks as 4.5 for ~30% fewer output tokens and slightly higher accuracy.</li>
+                <li><strong>Choose the right model.</strong> Fable 5.1 uses ~15% more tokens than Sonnet 4.5 for the same tasks. Codex (gpt-5.6-terra / -luna) sits below the Claude models for total tokens on most conditions.</li>
             </ul>
         </section>
 
@@ -704,7 +703,6 @@ def render_page():
         </div>
 
         <h2>Overview</h2>
-        {render_rerun_comparison()}
         {render_condition_summary()}
         <div class="charts">
             <div class="chart-container">{bar_chart_grouped(token_data, labels, list(token_data.keys()), "Avg total tokens (prompt + response) per run, by condition", "tokens", token_colors, height=320)}</div>

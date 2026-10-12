@@ -1,0 +1,12 @@
+{
+  "response": "# BIG ROCK DECISIONS\n\n- **Reconciliation = build, not buy.** Old engine break on multi-currency. 3 incidents, tickets up 40%. Vendors bad: Recur $180K/yr, LedgerFlow $140K but no jurisdiction tax codes \u2014 both still need 3 eng-weeks glue. Build = 6 eng-weeks, need Karim 2 weeks.\n- **Reconciliation = Q3 anchor.**\n- **Mobile receipt-capture ship v1 WITHOUT bulk-select.** User test (6 people) want bulk-select + louder OCR confidence badge. Bulk-select = 1 sprint, too much. Goes on roadmap as fast-follow. OCR indicator stay in.\n- **Payout SLA not decided yet.** Want 48h from approval; p95 now 71h. Fix = eng cut ACH batch window 12h\u21924h (half sprint + SRE sign-off) + ops add second approver west-coast shift. Hit mid-Q3 if go. Sara want trade-off first; if SRE say monitoring load OK, do it. Else pick smaller target.\n- **Audit-log retention \u2192 Q4.** Legal agree.\n- **Admin-tool refresh unchanged.** Intern crew still own.\n- **Eng burnout real.** HR flag bug-bash burnout. Want rotating on-call proposal.\n\n# NEXT STEPS\n\n| Who | What | When |\n|---|---|---|\n| Marcus | Confirm Karim availability with his manager | this week |\n| Marcus + Jenna | ACH batch-window trade-off analysis + SRE sign-off | next week |\n| Marcus | Propose rotating on-call structure | by 31st |\n| Dan | Update mobile specs (no bulk-select, stronger OCR indicator) | Wednesday |\n| Priya | Circulate scope draft for review | Thursday AM |\n| All | Lock Q3 scope | Friday |\n| Sara | Take scope to exec review | Monday |",
+  "tokens": {
+    "input": 17486,
+    "output": 682,
+    "reasoning": 0
+  },
+  "duration_ms": 8536,
+  "run_id": "t4_meeting__c3_caveman",
+  "model": "opus",
+  "prompt_chars": 3941
+}

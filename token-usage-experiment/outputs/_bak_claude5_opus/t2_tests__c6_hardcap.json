@@ -1,0 +1,12 @@
+{
+  "response": "```python\nimport pytest\nfrom datetime import date\nfrom late_fee import LateFeeCalculator\n\nDUE = date(2026, 1, 5)  # Monday\n\ndef calc(today): return LateFeeCalculator(today=today)\n\n@pytest.mark.parametrize(\"bal\", [0, -100])\ndef test_nonpositive_balance(bal):\n    assert calc(date(2027, 1, 1)).compute_fee_cents(bal, DUE) == 0\n\ndef test_before_due_date():\n    assert calc(date(2026, 1, 1)).compute_fee_cents(100000, DUE) == 0\n\ndef test_today_equals_due():\n    assert calc(DUE).compute_fee_cents(100000, DUE) == 0\n\ndef test_exactly_grace_period():  # 10 weekdays\n    assert calc(date(2026, 1, 19)).compute_fee_cents(100000, DUE) == 0\n\ndef test_min_fee_applied():  # 11 weekdays, 1 billable\n    assert calc(date(2026, 1, 20)).compute_fee_cents(10000, DUE) == 500\n\ndef test_normal_proration():  # 30 weekdays, 20 billable\n    assert calc(date(2026, 2, 16)).compute_fee_cents(1000000, DUE) == 10000\n\ndef test_round_half_up(monkeypatch):\n    c = calc(date(2026, 1, 20))\n    assert c.compute_fee_cents(2001000, DUE) == 1001\n\ndef test_max_cap(monkeypatch):\n    c = calc(date(2026, 1, 20))\n    monkeypatch.setattr(c, \"_weekday_days_between\", lambda s, e: 610)\n    assert c.compute_fee_cents(100000, DUE) == 25000\n\ndef test_weekends_excluded():\n    c = calc(date(2026, 1, 12))  # Mon->Mon = 7 cal days\n    assert c._weekday_days_between(DUE, date(2026, 1, 12)) == 5\n\ndef test_end_before_start():\n    assert calc(DUE)._weekday_days_between(date(2026, 2, 1), DUE) == 0\n\ndef test_default_today(monkeypatch):\n    assert LateFeeCalculator()._today == date.today()\n```",
+  "tokens": {
+    "input": 16744,
+    "output": 1544,
+    "reasoning": 791
+  },
+  "duration_ms": 20125,
+  "run_id": "t2_tests__c6_hardcap",
+  "model": "opus",
+  "prompt_chars": 1992
+}

@@ -1,0 +1,12 @@
+{
+  "response": "Bugs:\n\n1. **`group_transactions`: `reverse=True`** \u2014 docstring says oldest first; running balance is computed newest\u2192oldest. Fix: `txs.sort(key=lambda t: t[\"timestamp\"])`.\n\n2. **`average_daily_balance`: missing carry-forward** \u2014 days with no transaction get 0 instead of the last known balance. Fix: track running value:\n```python\nlast = 0\nfor day in range(start_day, end_day):\n    last = balances_by_day.get(day, last)\n    total += last\n```\n(Also days before the first tx should be 0, which this preserves.)\n\n3. **`top_accounts_by_activity`: ascending sort** \u2014 returns the *least* active. Fix: `key=lambda kv: -kv[1]` (or `reverse=True`).",
+  "tokens": {
+    "input": 16739,
+    "output": 258,
+    "reasoning": 0
+  },
+  "duration_ms": 4245,
+  "run_id": "t1_bugs__c6_hardcap",
+  "model": "opus",
+  "prompt_chars": 2122
+}

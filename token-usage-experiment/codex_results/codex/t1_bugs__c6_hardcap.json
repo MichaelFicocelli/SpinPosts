@@ -1,0 +1,9 @@
+{
+  "response": "- `group_transactions`: sorts newest-first; docstring requires oldest-first. Fix: remove `reverse=True`.\n- `average_daily_balance`: missing days incorrectly use `0`; carry forward prior balance. Also validate `end_day > start_day`.\n- `top_accounts_by_activity`: ascending sort returns least-active accounts. Fix: `key=lambda kv: kv[1], reverse=True`.",
+  "tokens": {
+    "input": 16645,
+    "output": 81,
+    "reasoning": 0
+  },
+  "duration_ms": 6599
+}

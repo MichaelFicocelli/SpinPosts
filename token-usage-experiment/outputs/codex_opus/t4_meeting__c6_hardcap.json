@@ -1,12 +1,9 @@
 {
-  "response": "**Decisions**\n- Reconciliation = Q3 anchor; build over buy (Recur $180K, LedgerFlow $140K but no jurisdiction tax codes; both still ~3 eng-weeks integration). Rewrite ~6 eng-weeks + Karim 2 weeks.\n- Mobile receipt-capture v1 ships without bulk-select (fast-follow on roadmap); prominent OCR confidence indicator from user testing.\n- Payout SLA: target 48h p95 (current 71h) via ACH batch window 12h\u21924h + second west-coast approver; contingent on SRE sign-off, else intermediate targets.\n- Audit-log retention pushed to Q4 (Legal confirmed); admin-tool refresh unchanged (interns).\n\n**Action items**\n- Marcus: confirm Karim's availability this week; ACH trade-off analysis (w/ Jenna) next week; on-call rotation proposal by 8/31.\n- Dan: updated mobile specs by Wednesday.\n- Priya: circulate scope draft Thursday AM; scope locked Friday.\n- Sara: exec review Monday.",
+  "response": "- Q3 anchor: build reconciliation rewrite (6 eng-weeks); vendor options rejected.\n- Marcus: confirm Karim/platform availability this week.\n- Receipt capture v1 ships without bulk-select; fast-follow planned. Dan updates specs Wednesday.\n- Payout 48h SLA pending ACH batching/SRE trade-off next week; Jenna + Marcus.\n- Audit-log retention deferred to Q4; admin refresh unchanged.\n- Marcus proposes rotating on-call by Aug 31.\n- Priya circulates scope draft Thursday; lock Friday; Sara exec review Monday.",
   "tokens": {
-    "input": 17475,
-    "output": 382,
+    "input": 17037,
+    "output": 113,
     "reasoning": 0
   },
-  "duration_ms": 4963,
-  "run_id": "t4_meeting__c6_hardcap",
-  "model": "opus",
-  "prompt_chars": 3937
+  "duration_ms": 7339
 }

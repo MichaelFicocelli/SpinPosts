@@ -1,0 +1,9 @@
+{
+  "response": "- Q3 scope lock Friday; Sara takes plan exec review Monday.\n- Reconciliation revamp = Q3 anchor. Build, not vendor buy.\n  - Rewrite: ~6 eng-weeks, includes FX rounding move.\n  - Need Karim / Platform for 2 weeks, ledger link.\n  - Vendor paths cost $140K–$180K yearly, still need ~3 eng-weeks; weak fit.\n  - Marcus: confirm Karim availability with his manager this week.\n\n- Mobile receipt capture ships v1 without bulk-select.\n  - User tests want bulk-select + clear OCR confidence sign.\n  - Bulk-select moves fast-follow roadmap; adds about 1 sprint.\n  - Dan: update specs by Wednesday.\n\n- Vendor payout SLA goal: 48-hour p95 from invoice approval, by mid-Q3.\n  - Current p95: 71 hours.\n  - Path: cut ACH batch window 12h → 4h; Ops adds west-coast second approver.\n  - Eng cost: half sprint plus SRE sign-off, more monitor work.\n  - Marcus + Jenna: ACH trade-off analysis next week.\n  - If SRE says monitor load fine, do change; else set mid target.\n\n- Audit-log retention update pushed Q4; Legal aligned.\n- Internal admin-tool refresh stays with intern crew.\n- Bug-bash burnout flagged.\n  - Marcus: propose rotating on-call plan by Aug 31.\n\n- Priya: send scope draft Thursday morn for review before Friday lock.",
+  "tokens": {
+    "input": 17052,
+    "output": 310,
+    "reasoning": 0
+  },
+  "duration_ms": 8837
+}

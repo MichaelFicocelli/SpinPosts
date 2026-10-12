@@ -1,0 +1,12 @@
+{
+  "response": "```python\nfrom datetime import date\nimport pytest\nfrom late_fee import LateFeeCalculator\n\nMON = date(2026, 8, 3)  # Monday\n\n\ndef calc(today):\n    return LateFeeCalculator(today=today)\n\n\ndef test_default_today():\n    assert LateFeeCalculator()._today == date.today()\n\n\n@pytest.mark.parametrize(\"bal\", [0, -100])\ndef test_nonpositive_balance(bal):\n    assert calc(date(2030, 1, 1)).compute_fee_cents(bal, MON) == 0\n\n\ndef test_today_before_due():\n    assert calc(date(2026, 7, 1)).compute_fee_cents(10000, MON) == 0\n\n\ndef test_within_grace():\n    # 14 calendar days = 10 weekdays -> no billable days\n    assert calc(date(2026, 8, 17)).compute_fee_cents(10000, MON) == 0\n\n\ndef test_weekends_excluded():\n    # Fri -> following Mon counts only Fri, so not past grace\n    assert calc(date(2026, 8, 7)).compute_fee_cents(10000, MON) == 0\n\n\ndef test_minimum_fee():\n    # 1 billable day: 5 cents -> min 500\n    assert calc(date(2026, 8, 18)).compute_fee_cents(10000, MON) == 500\n\n\ndef test_normal_fee():\n    # 20 weekdays, 10 billable: 1,000,000 * 0.0005 * 10 = 5000\n    assert calc(date(2026, 8, 31)).compute_fee_cents(1_000_000, MON) == 5000\n\n\ndef test_cap_applies():\n    fee = calc(date(2026, 9, 21)).compute_fee_cents(10000, date(2020, 1, 6))\n    assert fee == 2500\n\n\ndef test_min_beats_cap():\n    fee = calc(date(2026, 9, 21)).compute_fee_cents(1000, date(2020, 1, 6))\n    assert fee == 500\n```",
+  "tokens": {
+    "input": 16806,
+    "output": 1410,
+    "reasoning": 752
+  },
+  "duration_ms": 15902,
+  "run_id": "t2_tests__c6_hardcap",
+  "model": "sonnet",
+  "prompt_chars": 1992
+}
