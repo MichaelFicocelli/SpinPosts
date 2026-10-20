@@ -1,3 +1,24 @@
+Wrist pain, eyestrain, and sore backs are familiar companions in office jobs — but they don't have to be. We all want to be a machine that turns coffee into business value, but your environment will make or break you. Preventative measures can not only keep you from breaking down over time, but actually increase your productivity.
+
+I thought the daily ache was normal. The pain in my wrists, arms, and back was a familiar part of the work day. But then it followed me home, and before I knew it, I was on forced rest, unable to use a computer for months, waiting for the cubital tunnel syndrome to subside. And it was completely preventable - and I found how to keep it from coming back.
+
+The quickest way to lose the ability to work comfortably is to spend a lot of time hunched over. Leaning forward or looking down while working on a laptop or phone causes "tech neck" — muscle and back injury that can be permanent. Peering down at your screen moves your weight forward, off your core, and suspends your head and shoulders out in front of you. This strains and pulls at your neck and back and spine over time. Because of this, it's very important to use a monitor that is set high enough to be comfortable. Ideally the top edge of the monitor is at or just above eye level.
+
+The other pretzel we commonly bend ourselves into is poor wrist position. Repetitive strain injuries are extremely common with extended computer use, and poor hand positioning greatly increases the risk. It's convenient to put the laptop wherever there is a flat surface in a meeting room and just do the wrist-icuffs needed to still type, but unfortunately it isn't sustainable for the duration of a career.
+
+You should use a keyboard that is at elbow level, and your wrists should be straight and relaxed, not angled. Note that wrist rests in some cases can actually do more harm than good, due to the point pressure on joints they may cause. Ideally your wrists float over the keyboard, and your mouse hand only has a small pad on the thumb side to avoid the ulnar nerve and carpal tunnel tendons.
+
+Together, this means naked laptops are a long-term risk to your dev bod. Their keyboard is positioned too far away and not angled well, and the screen is far too low and small to use for extended periods of time. In many cases it will be impossible to completely avoid, but any reduction you can find will help, even if you just make the time to stand and uncurl a bit each hour.
+
+The best solution to all of these issues is a standing work setup. It is much easier to have good posture when standing - not to mention that sitting for hours is as bad for your health as smoking. That kind of setup also has the benefit of avoiding armrests, which are common causes of crushed nerves like mine. A full standing desk is ideal, but you can find inexpensive raisers or adapters that allow you to stand at your current workstation. A good mat to stand on is also helpful! Follow the same ergonomic positioning as above - move the top of the monitor to eye level, and position the keyboard and mouse at a height where your arms are comfortably positioned 90 degrees.
+
+The common tiredness and strain that often come with office work don't have to take away your productivity and longevity. Being curled up is familiar, and your laptop is so conveniently mobile, but your chassis needs to be kept in good shape for it to keep working long-term. It's worth finding ways to shape your tech to you, rather than curling yourself up to meet your screen.
+
+
+--------
+
+
+
 The care and feeding of your dev bod, part 1: Be Human Shaped
 
 Wrist pain, eyestrain, and sore backs are familiar companions in office jobs - but they don't have to be.  We all want to be a machine that turns coffee into business value, but your environment quite literally will make or break you. Preventative measures can not only keep you from breaking down over time, but actually increase your productivity.
